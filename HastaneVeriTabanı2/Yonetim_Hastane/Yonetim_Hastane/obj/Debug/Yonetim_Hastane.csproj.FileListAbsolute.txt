@@ -1,0 +1,121 @@
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.exe.config
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.exe
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.pdb
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csprojAssemblyReference.cache
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmBilgiDuzenle.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmBransPaneli.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorBilgiDuzenle.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorDetay.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorGiris.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorPaneli.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDuyurular.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmGirisler.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmHastaDetay.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmHastaGiris.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmHastaKayit.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmRandevuListesi.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmSekreterDetay.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmSekreterGiris.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.Properties.Resources.resources
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csproj.GenerateResource.cache
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csproj.CoreCompileInputs.cache
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.exe
+C:\Users\Furkan ARIKAN\source\repos\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.pdb
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.exe.config
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.exe
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.pdb
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csprojAssemblyReference.cache
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmBilgiDuzenle.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmBransPaneli.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorBilgiDuzenle.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorDetay.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorGiris.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorPaneli.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDuyurular.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmGirisler.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmHastaDetay.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmHastaGiris.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmHastaKayit.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmRandevuListesi.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmSekreterDetay.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmSekreterGiris.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.Properties.Resources.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csproj.GenerateResource.cache
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csproj.CoreCompileInputs.cache
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.exe
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Türksat Projeler Eyüp_Furkan_ARIKAN_18664244814\ilk_hafta\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.pdb
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.exe.config
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.exe
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.pdb
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csprojAssemblyReference.cache
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmBilgiDuzenle.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmBransPaneli.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorBilgiDuzenle.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorDetay.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorGiris.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorPaneli.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDuyurular.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmGirisler.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmHastaDetay.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmHastaGiris.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmHastaKayit.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmRandevuListesi.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmSekreterDetay.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmSekreterGiris.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.Properties.Resources.resources
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csproj.GenerateResource.cache
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csproj.CoreCompileInputs.cache
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.exe
+D:\Bilgisayar Mühendisliği Tasarım Çalışması 2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.pdb
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.exe.config
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.exe
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.pdb
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csprojAssemblyReference.cache
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmBilgiDuzenle.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmBransPaneli.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorBilgiDuzenle.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorDetay.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorPaneli.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDuyurular.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmGirisler.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmHastaDetay.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmHastaKayit.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmRandevuListesi.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmSekreterDetay.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.Properties.Resources.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csproj.GenerateResource.cache
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csproj.CoreCompileInputs.cache
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.exe
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.pdb
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmMusteriHizmetleri.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmYoneticiDetay.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmYoneticiBilgiDuzenle.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmYoneticiEkle.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmSekreterEkle.resources
+C:\Users\casper\Documents\Projects\HastaneRandevu\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorVeBranslar.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csprojAssemblyReference.cache
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorVeBranslar.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmBilgiDuzenle.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmBransPaneli.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorBilgiDuzenle.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorDetay.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDoktorPaneli.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmDuyurular.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmGirisler.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmHastaDetay.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmHastaKayit.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmMusteriHizmetleri.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmRandevuListesi.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmSekreterDetay.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmSekreterEkle.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmYoneticiBilgiDuzenle.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmYoneticiDetay.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.FrmYoneticiEkle.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.Properties.Resources.resources
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csproj.GenerateResource.cache
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.csproj.CoreCompileInputs.cache
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.exe
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\obj\Debug\Yonetim_Hastane.pdb
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.exe.config
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.exe
+D:\09.10.2018 başlangıç D\Bilgisayar Mühendisliği Tasarım Çalışması 2\Proje\HastaneVeriTabanı2\Yonetim_Hastane\Yonetim_Hastane\bin\Debug\Yonetim_Hastane.pdb

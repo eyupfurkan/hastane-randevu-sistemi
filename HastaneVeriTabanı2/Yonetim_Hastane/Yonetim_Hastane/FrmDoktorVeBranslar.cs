@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmDoktorVeBranslar : Form
+    {
+        public FrmDoktorVeBranslar()
+        {
+            InitializeComponent();
+        }
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        private void DoktorVeBranslar_Load(object sender, EventArgs e)
+        {
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter da1 = new SqlDataAdapter("select Doktorid,DoktorAd,DoktorSoyad,BransAd from Tbl_Doktorlar, Tbl_Branslar where Tbl_Branslar.Bransid=Tbl_Doktorlar.Bransid", bgl.baglanti());
+            da1.Fill(dt1);
+            dataGridView1.DataSource = dt1;
+
+            DataTable dt2 = new DataTable();
+            SqlDataAdapter da2 = new SqlDataAdapter("select Bransid,BransAd from Tbl_Branslar", bgl.baglanti());
+            da2.Fill(dt2);
+            dataGridView2.DataSource = dt2;
+        }
+    }
+}

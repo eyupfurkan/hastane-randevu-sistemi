@@ -1,0 +1,1 @@
+Bu proje bir hastane sisteminde yönetim iþlemleri ve randevu alma veya iptal etme ve silme iþlemleri için kullanýlabilir. Ancak bu projede hastane bazýnda iþlem yapmaktadýr. Ýnsanlarýn tüm hastanelerden randevu alabileceði bir randevu sistemi yapýlabilir.

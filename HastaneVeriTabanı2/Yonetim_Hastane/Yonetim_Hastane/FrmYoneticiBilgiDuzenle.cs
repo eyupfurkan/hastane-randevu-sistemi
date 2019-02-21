@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmYoneticiBilgiDuzenle : Form
+    {
+        public FrmYoneticiBilgiDuzenle()
+        {
+            InitializeComponent();
+        }
+        public string TCno;
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        private void BtnBilgiGuncelle_Click(object sender, EventArgs e)
+        {
+            if (FrmHastaKayit.TCKontrol(MskTC.Text)) {
+                SqlCommand komut2 = new SqlCommand("update Tbl_Yoneticiler set YoneticiAd=@p1, YoneticiSoyad=@p2, YoneticiSifre=@p3 where YoneticiTC=@p4", bgl.baglanti());
+                komut2.Parameters.AddWithValue("@p1", TxtAd.Text);
+                komut2.Parameters.AddWithValue("@p2", TxtSoyad.Text);
+                komut2.Parameters.AddWithValue("@p3", TxtSifre.Text);
+                komut2.Parameters.AddWithValue("@p4", MskTC.Text);
+                komut2.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Bilgileriniz güncellendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void FrmYoneticiBilgiDuzenle_Load(object sender, EventArgs e)
+        {
+            MskTC.Text = TCno;
+            SqlCommand komut = new SqlCommand("select * from Tbl_Yoneticiler where YoneticiTC=@p1", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", TCno);
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                TxtAd.Text = dr[2].ToString();
+                TxtSoyad.Text = dr[3].ToString();
+                TxtSifre.Text = dr[4].ToString();
+            }
+            bgl.baglanti().Close();
+        }
+    }
+}

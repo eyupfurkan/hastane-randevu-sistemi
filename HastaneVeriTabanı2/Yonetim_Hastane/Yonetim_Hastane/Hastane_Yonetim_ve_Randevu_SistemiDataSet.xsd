@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Hastane_Yonetim_ve_Randevu_SistemiDataSet" targetNamespace="http://tempuri.org/Hastane_Yonetim_ve_Randevu_SistemiDataSet.xsd" xmlns:mstns="http://tempuri.org/Hastane_Yonetim_ve_Randevu_SistemiDataSet.xsd" xmlns="http://tempuri.org/Hastane_Yonetim_ve_Randevu_SistemiDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Hastane_Yonetim_ve_Randevu_SistemiConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Hastane_Yonetim_ve_Randevu_SistemiConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Yonetim_Hastane.Properties.Settings.GlobalReference.Default.Hastane_Yonetim_ve_Randevu_SistemiConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Hastane_Yonetim_ve_Randevu_SistemiDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Hastane_Yonetim_ve_Randevu_SistemiDataSet" msprop:Generator_UserDSName="Hastane_Yonetim_ve_Randevu_SistemiDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
