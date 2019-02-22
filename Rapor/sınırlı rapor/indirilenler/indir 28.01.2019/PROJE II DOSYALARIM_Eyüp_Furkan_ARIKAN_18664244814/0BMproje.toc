@@ -1,0 +1,14 @@
+\babel@toc {turkish}{}
+\contentsline {section}{\"OZET}{ii}{Doc-Start}
+\contentsline {section}{ABSTRACT}{iv}{Doc-Start}
+\contentsline {section}{TE\c SEKK\"UR}{vi}{Doc-Start}
+\contentsline {section}{S\.IMGE L\.ISTES\.I}{viii}{section*.1}
+\contentsline {section}{\c SEK\.IL L\.ISTES\.I}{ix}{section*.1}
+\contentsline {section}{TABLO L\.ISTES\.I}{x}{section*.1}
+\contentsline {section}{\numberline {1}G\.IR\.I\c S}{1}{section.1}
+\contentsline {section}{\numberline {2}PROJE C\# KOD ANLATIMI}{2}{section.2}
+\contentsline {section}{\numberline {3}PROGRAM VER\.I TABANI (SQL) \c CALI\c SMASININ ANLATIMI}{124}{section.3}
+\contentsline {section}{\numberline {4}SONU\c CLAR VE \"ONER\.ILER}{132}{section.4}
+\contentsline {section}{\numberline {5}EKLER}{134}{section.5}
+\contentsline {section}{KAYNAKLAR}{135}{section.5}
+\contentsline {section}{\"OZGE\c CM\.I\c S}{136}{section*.2}

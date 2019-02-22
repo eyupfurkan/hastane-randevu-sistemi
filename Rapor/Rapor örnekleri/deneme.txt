@@ -1,0 +1,5 @@
+SqlCommand komut = new SqlCommand("UPDATE Tbl_Randevular SET RandevuDurum='False', Hastaid=null WHERE Randevuid='" + Txtid.Text + "' ", bgl.baglanti());
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu iptal edildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            TabloGuncelle();

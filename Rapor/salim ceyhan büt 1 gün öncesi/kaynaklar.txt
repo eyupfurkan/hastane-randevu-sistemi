@@ -1,0 +1,14 @@
+\renewcommand{\refname}{KAYNAKLAR}
+\addcontentsline{toc}{section}{KAYNAKLAR}
+\begin{thebibliography}{99}%kaynak ortamý oluþturmak için
+%%%%Kaynak Web sayfasýndan alýnmýþ ise%%%%%%%%%%%%%%%%%
+\bibitem{k:1} https://docs.microsoft.com/en-us/sql/t-sql/data-types/bit-transact-sql?view=sql-server-2017
+\bibitem{k:2} https://docs.microsoft.com/en-us/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-2017
+\bibitem{k:3} http://selcukgural.com/c-ile-datagridview-uzerinde-veri-listeleme/
+\bibitem{k:4} https://www.kodlamamerkezi.com/c-net/c-ile-sql-server-veritabanina-kayit-ekleme/
+\bibitem{k:5} https://www.kodlamamerkezi.com/c-net/c-ile-sql-server-veritabanindan-kayit-silme/
+\bibitem{k:6} https://www.kodlamamerkezi.com/c-net/c-ile-sql-server-veritabani-kayit-guncelleme-islemleri/
+\bibitem{k:7} https://sanalkurs.net/c-datagridview-de-secilen-satirlari-textbox-da-gosterme-10584.html
+\bibitem{k:8} https://www.yazilimkodlama.com/programlama/c-tc-kimlik-no-dogrulama-kontrol-program-kodlari/
+\end{thebibliography}
+1029

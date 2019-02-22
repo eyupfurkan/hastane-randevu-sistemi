@@ -1,0 +1,223 @@
+\section{PROGRAMDA VERÝ TABANI(SQL) KULLANIMI}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{database_diagrami}
+\caption{Veri Tabaný Diagramý}
+\end{figure}
+
+\textbf{Dosya 1:} Sql Veri Tabaný:
+
+\begin{lstlisting}
+create database Hastane_Yonetim_ve_Randevu_Sistemi
+use Hastane_Yonetim_ve_Randevu_Sistemi
+
+create table Tbl_Yoneticiler(
+Yoneticiid tinyint primary key identity(1,1) not null,
+YoneticiTC varchar(11),
+YoneticiAd varchar(30),
+YoneticiSoyad varchar(20),
+YoneticiSifre varchar(10)
+)
+
+create table Tbl_Branslar(
+Bransid tinyint primary key identity(1,1) not null,
+Yoneticiid tinyint foreign key references 
+Tbl_Yoneticiler(Yoneticiid),
+BransAd varchar(50)
+)
+
+create table Tbl_Doktorlar(
+Doktorid tinyint primary key identity(1,1) not null,
+Bransid tinyint foreign key references 
+Tbl_Branslar(Bransid),
+Yoneticiid tinyint foreign key references 
+Tbl_Yoneticiler(Yoneticiid),
+DoktorAd varchar(15),
+DoktorSoyad varchar(15),
+DoktorTC varchar(11),
+DoktorSifre varchar(10),
+)
+
+create table Tbl_Sekreterler(
+Sekreterid tinyint primary key identity(1,1) not null,
+SekreterAd varchar(30),
+SekreterSoyad varchar(20),
+SekreterTC varchar(11),
+SekreterSifre varchar(10),
+)
+
+create table Tbl_Duyurular(
+Duyuruid smallint primary key identity(1,1) not null,
+Yoneticiid tinyint foreign key references 
+Tbl_Yoneticiler(Yoneticiid),
+Doktorid tinyint foreign key references 
+Tbl_Doktorlar(Doktorid),
+Sekreterid tinyint foreign key references 
+Tbl_Sekreterler(Sekreterid),
+Duyuru varchar(255)
+)
+
+create table Tbl_Hastalar(
+Hastaid smallint primary key identity(1,1) not null,
+HastaAd varchar(30),
+HastaSoyad varchar(20),
+HastaTC varchar(11),
+HastaTelefon varchar(15),
+HastaSifre varchar(10),
+HastaCinsiyet varchar(5)
+)
+
+create table Tbl_Musteri_Hizmetleri(
+MusteriHizmetleriid smallint primary key identity(1,1) 
+not null,
+MusteriHizmetleriAd varchar(30),
+MusteriHizmetleriSoyad varchar(20),
+MusteriHizmetleriTC varchar(11),
+MusteriHizmetleriSifre varchar(10)
+)
+
+create table Tbl_Randevular(
+Randevuid int primary key identity(1,1) not null,
+Bransid tinyint foreign key references 
+Tbl_Branslar(Bransid),
+Doktorid tinyint foreign key references 
+Tbl_Doktorlar(Doktorid),
+Hastaid smallint foreign key references 
+Tbl_Hastalar(Hastaid),
+MusteriHizmetleriid smallint foreign key references 
+Tbl_Musteri_Hizmetleri(MusteriHizmetleriid),
+RandevuTarih varchar(10),
+RandevuSaat varchar(5),
+RandevuDurum bit,
+Sikayet varchar(255)
+)
+\end{lstlisting}
+
+Bu dosyadaki komutlarla sql veri tabanýný oluþturup kullanýyorum ve baþka dosyalarda ve ilgili projede kullanýlmak üzere bilgi depolamak, veri silmek, veri güncellemek için veri alt yapýsýný oluþturdum.
+
+\begin{lstlisting}
+create database Hastane_Yonetim_ve_Randevu_Sistemi
+\end{lstlisting}
+
+Bu komutla Hastane\_Yonetim\_ve\_Randevu\_Sistemi veri tabanýný oluþturdum.
+
+\begin{lstlisting}
+use Hastane_Yonetim_ve_Randevu_Sistemi
+\end{lstlisting}
+
+Bu komutla Hastane\_Yonetim\_ve\_Randevu\_Sistemi veri tabanýný kullan dedim yani verileri ekleme, verileri silme ve verileri güncelleme için yani veriler üzerinden iþlem yapmak için kullanýma açtým.
+
+\begin{lstlisting}
+create table Tbl_Yoneticiler(
+Yoneticiid tinyint primary key identity(1,1) not null,
+YoneticiTC varchar(11),
+YoneticiAd varchar(30),
+YoneticiSoyad varchar(20),
+YoneticiSifre varchar(10)
+)
+\end{lstlisting}
+
+Bu komutlarda Yöneticiler tablosunu yönetici id'yi tinyint - 0'dan 255 kadar 1 bayt yer kaplayacak þekilde - otomatik birer birer artan boþ býrakýlamayacak þekilde ve birincil anahtar olarak, yönetici TC'yi 11 karakter, yönetici adý 30 karakter, yönetici soyadý 20 karakter ve yönetici þifreyi 10 karakter varchar - string - olarak tanýmlayýp oluþturdum\cite{k:2}.
+
+\begin{lstlisting}
+create table Tbl_Branslar(
+Bransid tinyint primary key identity(1,1) not null,
+Yoneticiid tinyint foreign key references 
+Tbl_Yoneticiler(Yoneticiid),
+BransAd varchar(50)
+)
+\end{lstlisting}
+
+Bu komutlarda Branþlar tablosunu branþ id'yi tinyint - 0'dan 255 kadar 1 bayt yer kaplayacak þekilde  - otomatik birer birer artan boþ býrakýlamayacak þekilde ve birincil anahtar olarak, yönetici id'yi tinyint - 0'dan 255 kadar 1 bayt yer kaplayacak þekilde - yabancý anahtar olarak Yöneticiler tablosunda yönetici id'yi referans alarak ve branþ adý 50 karakter varchar - string - olarak tanýmlayýp oluþturdum\cite{k:2}.
+
+\begin{lstlisting}
+create table Tbl_Doktorlar(
+Doktorid tinyint primary key identity(1,1) not null,
+Bransid tinyint foreign key references 
+Tbl_Branslar(Bransid),
+Yoneticiid tinyint foreign key references 
+Tbl_Yoneticiler(Yoneticiid),
+DoktorAd varchar(15),
+DoktorSoyad varchar(15),
+DoktorTC varchar(11),
+DoktorSifre varchar(10),
+)
+\end{lstlisting}
+
+Bu komutlarda Doktorlar tablosunu doktor id'yi tinyint - 0'dan 255 kadar 1 bayt yer kaplayacak þekilde - otomatik birer birer artan boþ býrakýlamayacak þekilde ve birincil anahtar olarak, branþ id'yi tinyint - 0'dan 255 kadar 1 bayt yer kaplayacak þekilde - yabancý anahtar olarak Branþlar tablosunda branþ id'yi referans alarak, yönetici id'yi tinyint - 0'dan 255 kadar 1 bayt yer kaplayacak þekilde - yabancý anahtar olarak Yöneticiler tablosunda yönetici id'yi referans alarak ve doktor adý 15 karakter, doktor soyadý 15 karakter, doktor TC'si 11 karakter, doktor þifresi 10 karakter varchar - string - olarak tanýmlayýp oluþturdum\cite{k:2}.
+
+\begin{lstlisting}
+create table Tbl_Sekreterler(
+Sekreterid tinyint primary key identity(1,1) not null,
+SekreterAd varchar(30),
+SekreterSoyad varchar(20),
+SekreterTC varchar(11),
+SekreterSifre varchar(10),
+)
+\end{lstlisting}
+
+Bu komutlarda Sekreterler tablosunu sekreter id'yi tinyint - 0'dan 255 kadar 1 bayt yer kaplayacak þekilde - otomatik birer birer artan boþ býrakýlamayacak þekilde ve birincil anahtar olarak ve sekreter adý 30 karakter, sekreter soyadý 20 karakter, sekreter TC'si 11 karakter, sekreter þifresi 10 karakter varchar - string - olarak tanýmlayýp oluþturdum\cite{k:2}.
+
+\begin{lstlisting}
+create table Tbl_Duyurular(
+Duyuruid smallint primary key identity(1,1) not null,
+Yoneticiid tinyint foreign key references 
+Tbl_Yoneticiler(Yoneticiid),
+Doktorid tinyint foreign key references 
+Tbl_Doktorlar(Doktorid),
+Sekreterid tinyint foreign key references 
+Tbl_Sekreterler(Sekreterid),
+Duyuru varchar(255)
+)
+\end{lstlisting}
+
+Bu komutlarda Duyurular tablosunu duyuru id'yi tinyint - 0'dan 255 kadar 1 bayt yer kaplayacak þekilde - otomatik birer birer artan boþ býrakýlamayacak þekilde ve birincil anahtar olarak, yönetici id'yi tinyint - 0'dan 255 kadar 1 bayt yer kaplayacak þekilde - yabancý anahtar olarak Yöneticiler tablosunda yönetici id'yi referans alarak, doktor id'yi tinyint - 0'dan 255 kadar 1 bayt yer kaplayacak þekilde - yabancý anahtar olarak Doktorlar tablosunda doktor id'yi referans alarak, sekreter id'yi tinyint - 0'dan 255 kadar 1 bayt yer kaplayacak þekilde - yabancý anahtar olarak Sekreterler tablosunda sekreter id'yi referans alarak ve duyuruyu 255 karakter varchar - string - olarak tanýmlayýp oluþturdum\cite{k:2}.
+
+\begin{lstlisting}
+create table Tbl_Hastalar(
+Hastaid smallint primary key identity(1,1) not null,
+HastaAd varchar(30),
+HastaSoyad varchar(20),
+HastaTC varchar(11),
+HastaTelefon varchar(15),
+HastaSifre varchar(10),
+HastaCinsiyet varchar(5)
+)
+\end{lstlisting}
+
+Bu komutlarda Hastalar tablosunu hasta id'yi smallint - -32,768'den 32,767'ye kadar 2 bayt yer kaplayacak þekilde - otomatik birer birer artan boþ býrakýlamayacak þekilde ve birincil anahtar olarak ve hasta adý 30 karakter, hasta soyadý 20 karakter, hasta TC'si 11 karakter, hasta telefonu 15 karakter, hasta þifresi 10 karakter, hasta cinsiyeti 5 karakter varchar - string - olarak tanýmlayýp oluþturdum\cite{k:2}.
+
+\begin{lstlisting}
+create table Tbl_Musteri_Hizmetleri(
+MusteriHizmetleriid smallint primary key identity(1,1) 
+not null,
+MusteriHizmetleriAd varchar(30),
+MusteriHizmetleriSoyad varchar(20),
+MusteriHizmetleriTC varchar(11),
+MusteriHizmetleriSifre varchar(10)
+)
+\end{lstlisting}
+
+Bu komutlarda Müþteri Hizmetleri tablosunu müþteri hizmetleri id'yi smallint - -32,768'den 32,767'ye kadar 2 bayt yer kaplayacak þekilde - otomatik birer birer artan boþ býrakýlamayacak þekilde ve birincil anahtar olarak ve müþteri hizmetleri adý 30 karakter, müþteri hizmetleri soyadý 20 karakter, müþteri hizmetleri TC'si 11 karakter, müþteri hizmetleri þifresi 10 karakter varchar - string - olarak tanýmlayýp oluþturdum\cite{k:2}.
+
+\begin{lstlisting}
+create table Tbl_Randevular(
+Randevuid int primary key identity(1,1) not null,
+Bransid tinyint foreign key references 
+Tbl_Branslar(Bransid),
+Doktorid tinyint foreign key references 
+Tbl_Doktorlar(Doktorid),
+Hastaid smallint foreign key references 
+Tbl_Hastalar(Hastaid),
+MusteriHizmetleriid smallint foreign key references 
+Tbl_Musteri_Hizmetleri(MusteriHizmetleriid),
+RandevuTarih varchar(10),
+RandevuSaat varchar(5),
+RandevuDurum bit,
+Sikayet varchar(255)
+)
+\end{lstlisting}
+
+Bu komutlarda Randevular tablosunu randevu id'yi int - -2,147,483,648'den             
+2,147,483,647'ye kadar 4 bayt yer kaplayacak þekilde - otomatik birer birer artan boþ býrakýlamayacak þekilde ve birincil anahtar olarak, branþ id'yi tinyint - 0'dan 255 kadar 1 bayt yer kaplayacak þekilde - yabancý anahtar olarak Branþlar tablosunda branþ id'yi referans alarak, doktor id'yi tinyint - 0'dan 255 kadar 1 bayt yer kaplayacak þekilde - yabancý anahtar olarak Doktorlar tablosunda doktor id'yi referans alarak, hasta id'yi smallint - -32,768'den 32,767'ye kadar 2 bayt yer kaplayacak þekilde - yabancý anahtar olarak Hastalar tablosunda hasta id'yi referans alarak, müþteri hizmetleri id'yi smallint - -32,768'den 32,767'ye kadar 2 bayt yer kaplayacak þekilde - yabancý anahtar olarak Müþteri Hizmetleri tablosunda müþteri hizmetleri id'yi referans alarak, randevu durumu bit - 1 bayt olarak - ve randevu tarihi 10 karakter, randevu saati 5 karakter, þikayeti 255 karakter varchar - string - olarak tanýmlayýp oluþturdum\cite{k:1}\cite{k:2}.

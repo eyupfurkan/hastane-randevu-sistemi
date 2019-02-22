@@ -1,0 +1,1422 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6700 64-bit) (preloaded format=pdflatex 2018.5.15)  28 JAN 2019 13:04
+entering extended mode
+**./0BMproje.tex
+(0BMproje.tex
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 77 language(s) loaded.
+("C:/Local TeX Files\tex\latex\misc\BUP.cls"
+Document Class: BUP 19/12/2014 Version 1.1 by Dr.Salim CEYHAN
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\artic
+le.cls"
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size1
+2.clo"
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\g
+raphics.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\t
+rig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-c
+fg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-d
+ef\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\g
+raphicx.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\k
+eyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\ba
+bel.sty"
+Package: babel 2018/02/14 3.18 The Babel package
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\sw
+itch.def"
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
+)
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\babel-turkish\turkish.ldf"
+Language: turkish 2014/03/22 v1.3b Turkish support from the babel system
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\ba
+bel.def"
+File: babel.def 2018/02/14 3.18 Babel common definitions
+\babel@savecnt=\count87
+\U@D=\dimen105
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\tx
+tbabel.def")
+\bbl@dirlevel=\count88
+)
+Package babel Info: Making : an active character on input line 163.
+Package babel Info: Making ! an active character on input line 164.
+Package babel Info: Making = an active character on input line 194.
+))
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\input
+enc.sty"
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\latin
+5.def"
+File: latin5.def 2015/03/17 v1.2c Input encoding file
+))
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fonte
+nc.sty"
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc
+.def"
+File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\tim
+es.sty"
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfrcs.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common.tex"
+\pgfutil@everybye=\toks17
+\pgfutil@tempdima=\dimen106
+\pgfutil@tempdimb=\dimen107
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common-lists.te
+x")) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-latex.def"
+\pgfutil@abb=\box26
+("C:\Program Files\MiKTeX 2.9\tex\latex\ms\everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfrcs.code.tex"
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+))
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgfcore.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\systemlayer\pgfsys.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex"
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"
+\pgfkeys@pathtoks=\toks18
+\pgfkeys@temptoks=\toks19
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.te
+x"
+\pgfkeys@tmptoks=\toks20
+))
+\pgf@x=\dimen108
+\pgf@y=\dimen109
+\pgf@xa=\dimen110
+\pgf@ya=\dimen111
+\pgf@xb=\dimen112
+\pgf@yb=\dimen113
+\pgf@xc=\dimen114
+\pgf@yc=\dimen115
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count89
+\c@pgf@countb=\count90
+\c@pgf@countc=\count91
+\c@pgf@countd=\count92
+\t@pgf@toka=\toks21
+\t@pgf@tokb=\toks22
+\t@pgf@tokc=\toks23
+ ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgf.cfg"
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def"
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
+"
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.t
+ex"
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count93
+\pgfsyssoftpath@bigbuffer@items=\count94
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.t
+ex"
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-c
+fg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex"
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathcalc.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathutil.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathparser.code.tex"
+\pgfmath@dimen=\dimen116
+\pgfmath@count=\count95
+\pgfmath@box=\box27
+\pgfmath@toks=\toks24
+\pgfmath@stack@operand=\toks25
+\pgfmath@stack@operation=\toks26
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.
+tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometr
+ic.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.random.code
+.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.
+code.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.t
+ex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.
+tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.t
+ex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.integerarit
+hmetics.code.tex")))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex"
+\c@pgfmathroundto@lastzeros=\count96
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex
+"
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen117
+\pgf@picmaxx=\dimen118
+\pgf@picminy=\dimen119
+\pgf@picmaxy=\dimen120
+\pgf@pathminx=\dimen121
+\pgf@pathmaxx=\dimen122
+\pgf@pathminy=\dimen123
+\pgf@pathmaxy=\dimen124
+\pgf@xx=\dimen125
+\pgf@xy=\dimen126
+\pgf@yx=\dimen127
+\pgf@yy=\dimen128
+\pgf@zx=\dimen129
+\pgf@zy=\dimen130
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathconstruct.c
+ode.tex"
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen131
+\pgf@path@lasty=\dimen132
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.
+tex"
+File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
+\pgf@shorten@end@additional=\dimen133
+\pgf@shorten@start@additional=\dimen134
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex
+"
+File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
+\pgfpic=\box28
+\pgf@hbox=\box29
+\pgf@layerbox@main=\box30
+\pgf@picture@serial@count=\count97
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.co
+de.tex"
+File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
+\pgflinewidth=\dimen135
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransformations
+.code.tex"
+File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
+\pgf@pt@x=\dimen136
+\pgf@pt@y=\dimen137
+\pgf@pt@temp=\dimen138
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorequick.code.tex"
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreobjects.code.te
+x"
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathprocessing.
+code.tex"
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
+"
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
+\pgfarrowsep=\dimen139
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex"
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen140
+\pgf@sys@shading@range@num=\count98
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.te
+x"
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.t
+ex"
+File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
+\pgfexternal@startupbox=\box31
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex
+"
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransparency.co
+de.tex"
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepatterns.code.t
+ex"
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleshapes.code.tex"
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
+\pgfnodeparttextbox=\box32
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleplot.code.tex"
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.
+sty"
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen141
+\pgf@nodesepend=\dimen142
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.
+sty"
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgffor.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfkeys.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\math\pgfmath.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex"))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgffor.code.tex"
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex")
+\pgffor@iter=\dimen143
+\pgffor@skip=\dimen144
+\pgffor@stack=\toks27
+\pgffor@toks=\toks28
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\tikz.code.tex"
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.
+code.tex"
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count99
+\pgfplotmarksize=\dimen145
+)
+\tikz@lastx=\dimen146
+\tikz@lasty=\dimen147
+\tikz@lastxsaved=\dimen148
+\tikz@lastysaved=\dimen149
+\tikzleveldistance=\dimen150
+\tikzsiblingdistance=\dimen151
+\tikz@figbox=\box33
+\tikz@figbox@bg=\box34
+\tikz@tempbox=\box35
+\tikz@tempbox@bg=\box36
+\tikztreelevel=\count100
+\tikznumberofchildren=\count101
+\tikznumberofcurrentchild=\count102
+\tikz@fig@count=\count103
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex"
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count104
+\pgfmatrixcurrentcolumn=\count105
+\pgf@matrix@numberofcolumns=\count106
+)
+\tikz@expandcount=\count107
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+librarytopaths.code.tex"
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
+)))
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\g
+eometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek
+\ifpdf.sty"
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek
+\ifvtex.sty"
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\
+ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count108
+\Gm@cntv=\count109
+\c@Gm@tempcnt=\count110
+\Gm@bindingoffset=\dimen152
+\Gm@wd@mp=\dimen153
+\Gm@odd@mp=\dimen154
+\Gm@even@mp=\dimen155
+\Gm@layoutwidth=\dimen156
+\Gm@layoutheight=\dimen157
+\Gm@layouthoffset=\dimen158
+\Gm@layoutvoffset=\dimen159
+\Gm@dimlist=\toks29
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\g
+eometry.cfg"))
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\a
+mssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\a
+msfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks30
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\am
+smath.sty"
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\am
+stext.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\am
+sgen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks31
+\ex@=\dimen160
+))
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\am
+sbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen161
+)
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\am
+sopn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count111
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count112
+\leftroot@=\count113
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count114
+\DOTSCASE@=\count115
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box37
+\strutbox@=\box38
+\big@size=\dimen162
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count116
+\c@MaxMatrixCols=\count117
+\dotsspace@=\muskip10
+\c@parentequation=\count118
+\dspbrk@lvl=\count119
+\tag@help=\toks32
+\row@=\count120
+\column@=\count121
+\maxfields@=\count122
+\andhelp@=\toks33
+\eqnshift@=\dimen163
+\alignsep@=\dimen164
+\tagshift@=\dimen165
+\tagwidth@=\dimen166
+\totwidth@=\dimen167
+\lineht@=\dimen168
+\@envbody=\toks34
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks35
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amscls\ams
+thm.sty"
+Package: amsthm 2017/10/31 v2.20.4
+\thm@style=\toks36
+\thm@bodyfont=\toks37
+\thm@headfont=\toks38
+\thm@notefont=\toks39
+\thm@headpunct=\toks40
+\thm@preskip=\skip46
+\thm@postskip=\skip47
+\thm@headsep=\skip48
+\dth@everypar=\toks41
+)
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\float\floa
+t.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count123
+\float@exts=\toks42
+\float@box=\box39
+\@float@everytoks=\toks43
+\@floatcapt=\box40
+)
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\multirow\m
+ultirow.sty"
+Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
+\multirow@colwidth=\skip49
+\multirow@cntb=\count124
+\multirow@dima=\skip50
+\bigstrutjot=\dimen169
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\eso-pic\eso-pic.sty"
+Package: eso-pic 2018/04/12 v2.0h eso-pic (RN)
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek
+\atbegshi.sty"
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek
+\infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek
+\ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+))) ("C:\Program Files\MiKTeX 2.9\tex\latex\tocloft\tocloft.sty"
+Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
+Package tocloft Info: The document has section divisions on input line 51.
+\cftparskip=\skip51
+\cftbeforetoctitleskip=\skip52
+\cftaftertoctitleskip=\skip53
+\cftbeforepartskip=\skip54
+\cftpartnumwidth=\skip55
+\cftpartindent=\skip56
+\cftbeforesecskip=\skip57
+\cftsecindent=\skip58
+\cftsecnumwidth=\skip59
+\cftbeforesubsecskip=\skip60
+\cftsubsecindent=\skip61
+\cftsubsecnumwidth=\skip62
+\cftbeforesubsubsecskip=\skip63
+\cftsubsubsecindent=\skip64
+\cftsubsubsecnumwidth=\skip65
+\cftbeforeparaskip=\skip66
+\cftparaindent=\skip67
+\cftparanumwidth=\skip68
+\cftbeforesubparaskip=\skip69
+\cftsubparaindent=\skip70
+\cftsubparanumwidth=\skip71
+\cftbeforeloftitleskip=\skip72
+\cftafterloftitleskip=\skip73
+\cftbeforefigskip=\skip74
+\cftfigindent=\skip75
+\cftfignumwidth=\skip76
+\c@lofdepth=\count125
+\c@lotdepth=\count126
+\cftbeforelottitleskip=\skip77
+\cftafterlottitleskip=\skip78
+\cftbeforetabskip=\skip79
+\cfttabindent=\skip80
+\cfttabnumwidth=\skip81
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\totpages\totpages.sty"
+Package: totpages 2005/09/19 v2.00 Totpages Package (muewi)
+)
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\verb
+atim.sty"
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks44
+\verbatim@line=\toks45
+\verbatim@in@stream=\read2
+))
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\h
+yperref.sty"
+Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek
+\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek
+\hobsub-generic.sty"
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package hobsub Info: Skipping package `atbegshi' (already loaded).
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\a
+uxhook.sty"
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\k
+voptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen170
+\Hy@linkcounter=\count127
+\Hy@pagecounter=\count128
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\p
+d1enc.def"
+File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count129
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\h
+yperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4383.
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\p
+uenc.def"
+File: puenc.def 2018/02/06 v6.86b Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Option `breaklinks' set `true' on input line 4383.
+Package hyperref Info: Hyper figures OFF on input line 4509.
+Package hyperref Info: Link nesting OFF on input line 4514.
+Package hyperref Info: Hyper index ON on input line 4517.
+Package hyperref Info: Plain pages OFF on input line 4524.
+Package hyperref Info: Backreferencing OFF on input line 4529.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4762.
+\c@Hy@tempcnt=\count130
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5115.
+\XeTeXLinkMargin=\dimen171
+\Fld@menulength=\count131
+\Field@Width=\dimen172
+\Fld@charsize=\dimen173
+Package hyperref Info: Hyper figures OFF on input line 6369.
+Package hyperref Info: Link nesting OFF on input line 6374.
+Package hyperref Info: Hyper index ON on input line 6377.
+Package hyperref Info: backreferencing OFF on input line 6384.
+Package hyperref Info: Link coloring OFF on input line 6389.
+Package hyperref Info: Link coloring with OCG OFF on input line 6394.
+Package hyperref Info: PDF/A mode OFF on input line 6399.
+LaTeX Info: Redefining \ref on input line 6439.
+LaTeX Info: Redefining \pageref on input line 6443.
+\Hy@abspage=\count132
+\c@Item=\count133
+\c@Hfootnote=\count134
+)
+Package hyperref Info: Driver: hpdftex.
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\h
+pdftex.def"
+File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
+\Fld@listcount=\count135
+\c@bookmark@seq@number=\count136
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\r
+erunfilecheck.sty"
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip82
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count137
+\lst@gtempboxa=\box41
+\lst@token=\toks46
+\lst@length=\count138
+\lst@currlwidth=\dimen174
+\lst@column=\count139
+\lst@pos=\count140
+\lst@lostspace=\dimen175
+\lst@width=\dimen176
+\lst@newlines=\count141
+\lst@lineno=\count142
+\lst@maxwidth=\dimen177
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count143
+\lst@skipnumbers=\count144
+\lst@framebox=\box42
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+
+LaTeX Warning: Unused global option(s):
+    [showframe].
+
+(0BMproje.aux (1diskapak.aux) (2ickapak.aux) (3ozetabstract.aux) (4tesekkur.aux
+) (5icindekiler.aux) (6simgelistesi.aux) (7sekillistesi.aux) (8tablolistesi.aux
+) (9giris.aux) (10bolum1.aux) (11bolum2.aux) (12sonuclar.aux) (13ekler.aux)
+(14kaynaklar.aux) (15ozgecmis.aux))
+\openout1 = `0BMproje.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 7.
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\t1p
+tm.fd"
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+) ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count145
+\scratchdimen=\dimen178
+\scratchbox=\box43
+\nofMPsegments=\count146
+\nofMParguments=\count147
+\everyMPshowfont=\toks47
+\MPscratchCnt=\count148
+\MPscratchDim=\dimen179
+\MPnumerator=\count149
+\makeMPintoPDFobject=\count150
+\everyMPtoPDFconversion=\toks48
+)
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\e
+pstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\g
+rfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+) ABD: EveryShipout initializing macros
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: showframe 
+* h-part:(L,W,R)=(113.81102pt, 426.79135pt, 56.9055pt)
+* v-part:(T,H,B)=(85.35826pt, 674.33032pt, 85.35826pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=426.79135pt
+* \textheight=674.33032pt
+* \oddsidemargin=41.54103pt
+* \evensidemargin=41.54103pt
+* \topmargin=-23.91173pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\AtBeginShipoutBox=\box44
+Package hyperref Info: Link coloring OFF on input line 7.
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\n
+ameref.sty"
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek
+\gettitlestring.sty"
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count151
+)
+LaTeX Info: Redefining \ref on input line 7.
+LaTeX Info: Redefining \pageref on input line 7.
+LaTeX Info: Redefining \nameref on input line 7.
+ (0BMproje.out) (0BMproje.out)
+\@outlinefile=\write4
+\openout4 = `0BMproje.out'.
+
+\c@lstlisting=\count152
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang2.sty"
+File: lstlang2.sty 2015/06/04 1.6 listings language file
+)
+\openout2 = `1diskapak.aux'.
+
+ (1diskapak.tex
+<logomuz.jpg, id=53, 447.17062pt x 578.16pt>
+File: logomuz.jpg Graphic file (type jpg)
+<use logomuz.jpg>
+Package pdftex.def Info: logomuz.jpg  used on input line 4.
+(pdftex.def)             Requested size: 89.43253pt x 115.62994pt.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 9.
+)
+<filigran.jpg, id=54, 597.432pt x 845.0772pt>
+File: filigran.jpg Graphic file (type jpg)
+<use filigran.jpg>
+Package pdftex.def Info: filigran.jpg  used on input line 11.
+(pdftex.def)             Requested size: 597.55817pt x 845.04933pt.
+[1.1
+
+
+{C:/Users/Furkan ARIKAN/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/
+Local TeX Files/tex/latex/misc/filigran.jpg> <C:/Local TeX Files/tex/latex/misc
+/logomuz.jpg>]
+\openout2 = `2ickapak.aux'.
+
+ (2ickapak.tex
+File: logomuz.jpg Graphic file (type jpg)
+<use logomuz.jpg>
+Package pdftex.def Info: logomuz.jpg  used on input line 5.
+(pdftex.def)             Requested size: 89.43253pt x 115.62994pt.
+) [2.2
+
+
+]
+\openout2 = `3ozetabstract.aux'.
+
+ (3ozetabstract.tex
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
+[2.3
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 16--18
+
+ []
+
+[3.4] [4.5]) [5.6]
+\openout2 = `4tesekkur.aux'.
+
+ (4tesekkur.tex
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
+) [6.7
+
+
+]
+\openout2 = `5icindekiler.aux'.
+
+ (5icindekiler.tex (0BMproje.toc
+LaTeX Font Info:    Try loading font information for U+msa on input line 2.
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\u
+msa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 2.
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\u
+msb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
+\tf@toc=\write5
+\openout5 = `0BMproje.toc'.
+
+) [7.8
+
+
+]
+\openout2 = `6simgelistesi.aux'.
+
+ (6simgelistesi.tex) [8.9
+
+
+]
+\openout2 = `7sekillistesi.aux'.
+
+ (7sekillistesi.tex (0BMproje.lof)
+\tf@lof=\write6
+\openout6 = `0BMproje.lof'.
+
+)
+[9.10
+
+
+]
+\openout2 = `8tablolistesi.aux'.
+
+ (8tablolistesi.tex (0BMproje.lot)
+\tf@lot=\write7
+\openout7 = `0BMproje.lot'.
+
+) [10.11
+
+
+]
+\openout2 = `9giris.aux'.
+
+ (9giris.tex)pdfTeX warning (ext4): destination with the same identifier (name{
+page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.23 \include{9giris}
+                      [1.12
+
+
+]
+\openout2 = `10bolum1.aux'.
+
+ (10bolum1.texpdfTeX warning (ext4): destination with the same identifier (name
+{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.37 using 
+           System.ComponentModel; [2.13
+
+
+]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 64.
+
+("C:\Users\Furkan ARIKAN\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\oms
+ptm.fd"
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 64.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3.14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4.15]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5.16]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6.17]
+Overfull \hbox (5.21304pt too wide) in paragraph at lines 181--182
+[][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7.18]
+[8.19]
+Underfull \vbox (badness 4353) has occurred while \output is active []
+
+ [9.20]
+Overfull \hbox (12.41312pt too wide) in paragraph at lines 269--270
+[][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \vbox (badness 4353) has occurred while \output is active []
+
+ [10.21]
+Overfull \hbox (12.41312pt too wide) in paragraph at lines 310--311
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[11.22]
+Overfull \hbox (12.41312pt too wide) in paragraph at lines 344--345
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[12.23]
+Overfull \hbox (5.21304pt too wide) in paragraph at lines 374--375
+[][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13.24]
+[14.25]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15.26]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16.27]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17.28]
+[18.29]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19.30]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20.31]
+[21.32]
+Underfull \vbox (badness 4353) has occurred while \output is active []
+
+ [22.33]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [23.34]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24.35]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25.36]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [26.37]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27.38]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28.39]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29.40]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [30.41]
+[31.42] [32.43] [33.44] [34.45]
+Underfull \vbox (badness 4353) has occurred while \output is active []
+
+ [35.46]
+[36.47] [37.48]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [38.49]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [39.50]
+[40.51]
+Underfull \vbox (badness 4353) has occurred while \output is active []
+
+ [41.52]
+Underfull \vbox (badness 4353) has occurred while \output is active []
+
+ [42.53]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [43.54]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [44.55]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [45.56]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [46.57]
+[47.58] [48.59] [49.60]
+Underfull \vbox (badness 4353) has occurred while \output is active []
+
+ [50.61]
+Underfull \vbox (badness 2932) has occurred while \output is active []
+
+ [51.62]
+Overfull \hbox (4.12976pt too wide) in paragraph at lines 1621--1622
+[]\T1/ptm/m/n/12 komutlarnda Sql ko-mu-tunu yaz-dm. Sql ko-mu-tunda ran-de-vu
+-lar tab-lo-sun-dan Ran-de-vuid'ye
+ []
+
+
+Underfull \vbox (badness 4353) has occurred while \output is active []
+
+ [52.63]
+[53.64]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [54.65]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [55.66]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [56.67]
+Overfull \hbox (5.21304pt too wide) in paragraph at lines 1787--1788
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [57.68]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58.69]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [59.70]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [60.71]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [61.72]
+[62.73] [63.74]
+Underfull \vbox (badness 2980) has occurred while \output is active []
+
+ [64.75]
+Underfull \vbox (badness 4353) has occurred while \output is active []
+
+ [65.76]
+Underfull \vbox (badness 4353) has occurred while \output is active []
+
+ [66.77]
+[67.78] [68.79] [69.80]
+Underfull \vbox (badness 4353) has occurred while \output is active []
+
+ [70.81]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [71.82]
+[72.83] [73.84]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [74.85]
+[75.86]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [76.87]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [77.88]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [78.89]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [79.90]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [80.91]
+Overfull \hbox (19.61319pt too wide) in paragraph at lines 2574--2575
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+[81.92] [82.93] [83.94] [84.95]
+Overfull \hbox (5.21304pt too wide) in paragraph at lines 2711--2712
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (0.22598pt too wide) in paragraph at lines 2717--2718
+[]\T1/ptm/m/n/12 Sql ko-mutta Ran-de-vu-lar tab-lo-sunda ran-devu du-rumu do§ru
+ ola-rak, hasta id'yi Has-taTC'ye
+ []
+
+[85.96]
+Underfull \vbox (badness 2980) has occurred while \output is active []
+
+ [86.97]
+[87.98]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [88.99]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [89.100]
+[90.101] [91.102] [92.103] [93.104]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [94.105]
+[95.106] [96.107] [97.108]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [98.109]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [99.110]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [100.111]
+Overfull \hbox (12.41312pt too wide) in paragraph at lines 3248--3249
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[101.112]
+Underfull \vbox (badness 4353) has occurred while \output is active []
+
+ [102.113]
+Underfull \vbox (badness 2980) has occurred while \output is active []
+
+ [103.114]
+[104.115]
+Underfull \vbox (badness 4353) has occurred while \output is active []
+
+ [105.116]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [106.117]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [107.118]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [108.119]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [109.120]
+[110.121] [111.122] [112.123]
+Underfull \vbox (badness 4353) has occurred while \output is active []
+
+ [113.124]
+[114.125] [115.126]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [116.127]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [117.128]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [118.129]
+[119.130] [120.131] [121.132] [122.133]) [123.134]
+\openout2 = `11bolum2.aux'.
+
+ (11bolum2.tex
+Underfull \vbox (badness 1694) has occurred while \output is active []
+
+ [124.135
+
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [125.136]
+[126.137] [127.138] [128.139] [129.140]
+Overfull \hbox (7.59152pt too wide) in paragraph at lines 196--197
+[]\T1/ptm/m/n/12 Bu ko-mut-larda Mü³-teri Hiz-met-leri tab-lo-sunu mü³-teri hiz
+-met-leri id'yi smal-lint - -32,768'den
+ []
+
+[130.141])
+Overfull \hbox (19.69029pt too wide) in paragraph at lines 216--25
+[]\T1/ptm/m/n/12 Bu ko-mut-larda Ran-de-vu-lar tab-lo-sunu ran-devu id'yi int -
+ -2,147,483,648'den 2,147,483,647'ye
+ []
+
+[131.142]
+\openout2 = `12sonuclar.aux'.
+
+ (12sonuclar.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [132.143
+
+
+]
+[133.144]
+\openout2 = `13ekler.aux'.
+
+ (13ekler.tex) [134.145
+
+
+]
+\openout2 = `14kaynaklar.aux'.
+
+ (14kaynaklar.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+[]\T1/ptm/m/n/12 https://docs.microsoft.com/en-us/sql/t-sql/data-types/bit-tran
+sact-sql?view=sql-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+[]\T1/ptm/m/n/12 https://docs.microsoft.com/en-us/sql/t-sql/data-types/int-bigi
+nt-smallint-and-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+[]\T1/ptm/m/n/12 https://www.kodlamamerkezi.com/c-net/c-ile-sql-server-veritaba
+nina-kayit-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+[]\T1/ptm/m/n/12 https://www.kodlamamerkezi.com/c-net/c-ile-sql-server-veritaba
+nindan-kayit-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+[]\T1/ptm/m/n/12 https://www.kodlamamerkezi.com/c-net/c-ile-sql-server-veritaba
+ni-kayit-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+[]\T1/ptm/m/n/12 https://sanalkurs.net/c-datagridview-de-secilen-satirlari-text
+box-da-gosterme-
+ []
+
+) [135.146
+
+
+]
+\openout2 = `15ozgecmis.aux'.
+
+ (15ozgecmis.tex
+Overfull \hbox (69.11624pt too wide) in paragraph at lines 6--35
+[][] 
+ []
+
+) [136.147
+
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 31.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 31.
+ (0BMproje.aux (1diskapak.aux) (2ickapak.aux) (3ozetabstract.aux)
+(4tesekkur.aux) (5icindekiler.aux) (6simgelistesi.aux) (7sekillistesi.aux)
+(8tablolistesi.aux) (9giris.aux) (10bolum1.aux) (11bolum2.aux) (12sonuclar.aux)
+(13ekler.aux) (14kaynaklar.aux) (15ozgecmis.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 31.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 31.
+Package rerunfilecheck Info: File `0BMproje.out' has not changed.
+(rerunfilecheck)             Checksum: 9AD27A823936E078BCFB136D5DBDFBFC;1573.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 31.
+ ) 
+Here is how much of TeX's memory you used:
+ 26572 strings out of 493290
+ 456689 string characters out of 3125507
+ 486813 words of memory out of 3000000
+ 26097 multiletter control sequences out of 15000+200000
+ 19021 words of font info for 40 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 62i,12n,56p,1305b,1887s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/Furkan ARIKAN/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/bas
+e/8r.enc}<C:/Users/Furkan ARIKAN/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb><C:/Users/Furkan ARIKAN/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Furkan ARIKAN/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
+Output written on 0BMproje.pdf (147 pages, 1063572 bytes).
+PDF statistics:
+ 4813 PDF objects out of 5155 (max. 8388607)
+ 3542 named destinations out of 3580 (max. 500000)
+ 127 words of extra memory for PDF output out of 10000 (max. 10000000)
+

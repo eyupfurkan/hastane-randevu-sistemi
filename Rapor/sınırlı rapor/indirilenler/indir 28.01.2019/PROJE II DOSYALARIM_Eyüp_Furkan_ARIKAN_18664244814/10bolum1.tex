@@ -1,0 +1,3989 @@
+\section{PROJE C\# KOD ANLATIMI}
+
+\textbf{Dosya 1:} Sql Baðlatýsý Oluþturma:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    class SqlBaglantisi
+    {
+        public SqlConnection baglanti()
+        {
+            SqlConnection baglan = new SqlConnection("Data
+             Source=FURKAN\\SQLEXPRESS;Initial Catalog=
+             Hastane_Yonetim_ve_Randevu_Sistemi;Integrated
+              Security=True");
+            baglan.Open();
+            return baglan;
+        }
+    }
+}
+\end{lstlisting}
+
+Bu dosyadaki komutla sql baðlantýsýný oluþturup açýyorum ve baþka dosyalarda kullanýlmak üzere geri döndürüyorum.
+
+\textbf{Dosya 2:} Ýlk Giriþ Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmGirisler : Form
+    {
+        public FrmGirisler()
+        {
+            InitializeComponent();
+        }
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        private void button1_Click(object sender, 
+        EventArgs e)
+        {
+            String secim = comboBox1.Text;
+
+            if( secim.Equals("Hasta") )
+            {
+                SqlCommand komut = new SqlCommand("select *
+                 from Tbl_Hastalar where HastaTC=@p1 and 
+                 HastaSifre=@p2", bgl.baglanti());
+                komut.Parameters.AddWithValue("@p1", 
+                textBox1.Text);
+                komut.Parameters.AddWithValue("@p2", 
+                textBox2.Text);
+                SqlDataReader dr = komut.ExecuteReader();
+                if (dr.Read())
+                {
+                    FrmHastaDetay fr = new FrmHastaDetay();
+                    fr.tc = textBox1.Text;
+                    fr.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("TC Kimlik No ya da 
+                    þifre hatalýdýr.", "Uyarý", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Warning);
+                }
+                bgl.baglanti().Close();
+            } else if( secim.Equals("Doktor") )
+            {
+                SqlCommand komut = new SqlCommand("select *
+                 from Tbl_Doktorlar where DoktorTC=@d1 and
+                  DoktorSifre=@d2", bgl.baglanti());
+                komut.Parameters.AddWithValue("@d1", 
+                textBox1.Text);
+                komut.Parameters.AddWithValue("@d2", 
+                textBox2.Text);
+                SqlDataReader dr = komut.ExecuteReader();
+                if (dr.Read())
+                {
+                    FrmDoktorDetay fr = new 
+                    FrmDoktorDetay();
+                    fr.DoktorTCsi = textBox1.Text;
+                    fr.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("TC Kimlik No ya da 
+                    þifre hatalýdýr.", "Uyarý", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Warning);
+                }
+                bgl.baglanti().Close();
+            } else if( secim.Equals("Sekreter") )
+            {
+                SqlCommand komut = new SqlCommand("select *
+                 from Tbl_Sekreterler where SekreterTC=@p1 
+                 and SekreterSifre=@p2", bgl.baglanti());
+                komut.Parameters.AddWithValue("@p1", 
+                textBox1.Text);
+                komut.Parameters.AddWithValue("@p2", 
+                textBox2.Text);
+                SqlDataReader dr = komut.ExecuteReader();
+                if (dr.Read())
+                {
+                    FrmSekreterDetay frs = new 
+                    FrmSekreterDetay();
+                    frs.SekreterTC = textBox1.Text;
+                    frs.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("TC Kimlik No ya da 
+                    þifre hatalýdýr.", "Uyarý", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Warning);
+                }
+                bgl.baglanti().Close();
+            } else if( secim.Equals("Yönetici") )
+            {
+                SqlCommand komut = new SqlCommand("select *
+                 from Tbl_Yoneticiler where YoneticiTC=@p1 
+                 and YoneticiSifre=@p2", bgl.baglanti());
+                komut.Parameters.AddWithValue("@p1", 
+                textBox1.Text);
+                komut.Parameters.AddWithValue("@p2", 
+                textBox2.Text);
+                SqlDataReader dr = komut.ExecuteReader();
+                if (dr.Read())
+                {
+                    FrmYoneticiDetay frs = new 
+                    FrmYoneticiDetay();
+                    frs.YoneticiTC = textBox1.Text;
+                    frs.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("TC Kimlik No ya da 
+                    þifre hatalýdýr.", "Uyarý", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Warning);
+                }
+                bgl.baglanti().Close();
+            } else if( secim.Equals("Müþteri Hizmetleri") )
+            {
+                SqlCommand komut = new SqlCommand("select *
+                 from Tbl_Musteri_Hizmetleri where
+                  MusteriHizmetleriTC=@p1 and
+                   MusteriHizmetleriSifre=@p2", 
+                   bgl.baglanti());
+                komut.Parameters.AddWithValue("@p1", 
+                textBox1.Text);
+                komut.Parameters.AddWithValue("@p2", 
+                textBox2.Text);
+                SqlDataReader dr = komut.ExecuteReader();
+                if (dr.Read())
+                {
+                    FrmMusteriHizmetleri frs = new
+                     FrmMusteriHizmetleri();
+                    frs.MusteriHizmetleriTC = textBox1.Text;
+                    frs.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("TC Kimlik No ya da 
+                    þifre hatalýdýr.", "Uyarý", 
+                     MessageBoxButtons.OK, 
+                     MessageBoxIcon.Warning);
+                }
+                bgl.baglanti().Close();
+            }
+        }
+
+        private void button2_Click(object sender, 
+        EventArgs e)
+        {
+            FrmHastaKayit fr = new FrmHastaKayit();
+            fr.Show();
+        }
+    }
+}
+
+\end{lstlisting}
+
+Yukarýdaki Giriþ Formu Kodlarý'nda;
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný çaðýrdýk. 
+
+button1\_Click'in içinde;
+
+\begin{lstlisting}
+String secim = comboBox1.Text;
+\end{lstlisting}
+
+komutuyla comboBox1'in yazýsýný string seçim deðiþkenine aktardým.
+
+\begin{lstlisting}
+if( secim.Equals("Hasta") )
+            {
+                SqlCommand komut = new SqlCommand("select *
+                 from Tbl_Hastalar where HastaTC=@p1 and 
+                 HastaSifre=@p2", bgl.baglanti());
+                komut.Parameters.AddWithValue("@p1", 
+                textBox1.Text);
+                komut.Parameters.AddWithValue("@p2", 
+                textBox2.Text);
+                SqlDataReader dr = komut.ExecuteReader();
+                if (dr.Read())
+                {
+                    FrmHastaDetay fr = new FrmHastaDetay();
+                    fr.tc = textBox1.Text;
+                    fr.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("TC Kimlik No ya da 
+                    þifre hatalýdýr.", "Uyarý", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Warning);
+                }
+                bgl.baglanti().Close();
+            }
+\end{lstlisting}
+
+Seçim eðer Hasta ise Tbl\_Hastalar tablosundan HastaTC ve HastaSifre'ye göre verileri baðlantýyý saðlayarak getir dedim. p1 ve p2 parametrelerini HastaTC ve HastaSifre için kullandým.  Sonra Sql veri okuyucuyu komuta göre çalýþtýrdým. 
+
+Eðer veri okunduysa önce Tc'yi açýlan forma gönderdim. FrmHastaDetay formunu aç dedim. Bu formu gösterme dedim. Eðer okunmadýysa "TC Kimlik No ya da þifre hatalýdýr." uyarý mesajýný gösterdim ve baðlantýyý kapattým.
+
+\begin{lstlisting}
+else if( secim.Equals("Doktor") )
+            {
+                SqlCommand komut = new SqlCommand("select *
+                 from Tbl_Doktorlar where DoktorTC=@d1 and
+                  DoktorSifre=@d2", bgl.baglanti());
+                komut.Parameters.AddWithValue("@d1", 
+                textBox1.Text);
+                komut.Parameters.AddWithValue("@d2", 
+                textBox2.Text);
+                SqlDataReader dr = komut.ExecuteReader();
+                if (dr.Read())
+                {
+                    FrmDoktorDetay fr = new FrmDoktorDetay();
+                    fr.DoktorTCsi = textBox1.Text;
+                    fr.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("TC Kimlik No ya da 
+                    þifre hatalýdýr.", "Uyarý", 
+                     MessageBoxButtons.OK, 
+                     MessageBoxIcon.Warning);
+                }
+                bgl.baglanti().Close();
+            } 
+\end{lstlisting}
+
+Seçim eðer Doktor ise Tbl\_Doktorlar tablosundan DoktorTC ve DoktorSifre'ye göre verileri baðlantýyý saðlayarak getir dedim. d1 ve d2 parametrelerini DoktorTC ve DoktorSifre için kullandým.  Sonra Sql veri okuyucuyu komuta göre çalýþtýrdým. 
+
+Eðer veri okunduysa önce DoktorTCsi'ni açýlan forma gönderdim. FrmDoktorDetay formunu aç dedim. Bu formu gösterme dedim. Eðer okunmadýysa "TC Kimlik No ya da þifre hatalýdýr." uyarý mesajýný gösterdim ve baðlantýyý kapattým.
+
+\begin{lstlisting}
+else if( secim.Equals("Sekreter") )
+            {
+                SqlCommand komut = new SqlCommand("select *
+                 from Tbl_Sekreterler where SekreterTC=@p1 
+                 and SekreterSifre=@p2", bgl.baglanti());
+                komut.Parameters.AddWithValue("@p1", 
+                textBox1.Text);
+                komut.Parameters.AddWithValue("@p2", 
+                textBox2.Text);
+                SqlDataReader dr = komut.ExecuteReader();
+                if (dr.Read())
+                {
+                    FrmSekreterDetay frs = new 
+                    FrmSekreterDetay();
+                    frs.SekreterTC = textBox1.Text;
+                    frs.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("TC Kimlik No ya da þifre
+                     hatalýdýr.", "Uyarý", 
+                     MessageBoxButtons.OK, 
+                     MessageBoxIcon.Warning);
+                }
+                bgl.baglanti().Close();
+            }
+\end{lstlisting}
+
+Seçim eðer Sekreter ise Tbl\_Sekreterler tablosundan SekreterTC ve SekreterSifre'ye göre verileri baðlantýyý saðlayarak getir dedim. p1 ve p2 parametrelerini SekreterTC ve SekreterSifre için kullandým.  Sonra Sql veri okuyucuyu komuta göre çalýþtýrdým. 
+
+Eðer veri okunduysa önce SekreterTC'yi açýlan forma gönderdim. FrmSekreterDetay formunu aç dedim. Bu formu gösterme dedim. Eðer okunmadýysa "TC Kimlik No ya da þifre hatalýdýr." uyarý mesajýný gösterdim ve baðlantýyý kapattým.
+
+\begin{lstlisting}
+else if( secim.Equals("Yönetici") )
+            {
+                SqlCommand komut = new SqlCommand("select *
+                 from Tbl_Yoneticiler where YoneticiTC=@p1 
+                 and YoneticiSifre=@p2", bgl.baglanti());
+                komut.Parameters.AddWithValue("@p1", 
+                textBox1.Text);
+                komut.Parameters.AddWithValue("@p2", 
+                textBox2.Text);
+                SqlDataReader dr = komut.ExecuteReader();
+                if (dr.Read())
+                {
+                    FrmYoneticiDetay frs = new 
+                    FrmYoneticiDetay();
+                    frs.YoneticiTC = textBox1.Text;
+                    frs.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("TC Kimlik No ya da þifre
+                     hatalýdýr.", "Uyarý", 
+                     MessageBoxButtons.OK, 
+                     MessageBoxIcon.Warning);
+                }
+                bgl.baglanti().Close();
+            } 
+\end{lstlisting}
+
+Seçim eðer Yönetici ise Tbl\_Yoneticiler tablosundan YoneticiTC ve YoneticiSifre'ye göre verileri baðlantýyý saðlayarak getir dedim. p1 ve p2 parametrelerini YoneticiTC ve YoneticiSifre için kullandým.  Sonra Sql veri okuyucuyu komuta göre çalýþtýrdým. 
+
+Eðer veri okunduysa önce YoneticiTC'yi açýlan forma gönderdim. FrmYoneticiDetay formunu aç dedim. Bu formu gösterme dedim. Eðer okunmadýysa "TC Kimlik No ya da þifre hatalýdýr." uyarý mesajýný gösterdim ve baðlantýyý kapattým.
+
+\begin{lstlisting}
+else if( secim.Equals("Müþteri Hizmetleri") )
+            {
+                SqlCommand komut = new SqlCommand("select *
+                 from Tbl_Musteri_Hizmetleri where
+                  MusteriHizmetleriTC=@p1 and
+                   MusteriHizmetleriSifre=@p2", 
+                   bgl.baglanti());
+                komut.Parameters.AddWithValue("@p1", 
+                textBox1.Text);
+                komut.Parameters.AddWithValue("@p2", 
+                textBox2.Text);
+                SqlDataReader dr = komut.ExecuteReader();
+                if (dr.Read())
+                {
+                    FrmMusteriHizmetleri frs = new
+                     FrmMusteriHizmetleri();
+                    frs.MusteriHizmetleriTC = textBox1.Text;
+                    frs.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("TC Kimlik No ya da 
+                    þifre hatalýdýr.", "Uyarý", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Warning);
+                }
+                bgl.baglanti().Close();
+            } 
+\end{lstlisting}
+
+Seçim eðer Müþteri Hizmetleri ise Tbl\_Musteri\_Hizmetleri tablosundan MusteriHizmetleriTC ve MusteriHizmetleriSifre'ye göre verileri baðlantýyý saðlayarak getir dedim. p1 ve p2 parametrelerini MusteriHizmetleriTC ve MusteriHizmetleriSifre için kullandým.  Sonra Sql veri okuyucuyu komuta göre çalýþtýrdým. 
+
+Eðer veri okunduysa önce MusteriHizmetleriTC'yi açýlan forma gönderdim. FrmMusteriHizmetleri formunu aç dedim. Bu formu gösterme dedim. Eðer okunmadýysa "TC Kimlik No ya da þifre hatalýdýr." uyarý mesajýný gösterdim ve baðlantýyý kapattým.
+
+button2\_Click içinde;
+
+\begin{lstlisting}
+  FrmHastaKayit fr = new FrmHastaKayit();
+            fr.Show();
+\end{lstlisting}
+
+komutlarýyla FrmHastaKayit formunu açtým.
+
+\textbf{Dosya 3:} Hasta Kayýt Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmHastaKayit : Form
+    {
+        public FrmHastaKayit()
+        {
+            InitializeComponent();
+        }
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        private void BtnKayitYap_Click(object sender, 
+        EventArgs e)
+        {
+            if ( TCKontrol(MskTC.Text) ) {
+                SqlCommand komut = new SqlCommand("insert 
+                into
+                 Tbl_Hastalar(HastaAd,HastaSoyad,HastaTC,
+                 HastaTelefon,HastaSifre,HastaCinsiyet)
+                  values(@p1,@p2,@p3,@p4,@p5,@p6)", 
+                  bgl.baglanti());
+                komut.Parameters.AddWithValue("@p1", 
+                TxtAd.Text);
+                komut.Parameters.AddWithValue("@p2", 
+                TxtSoyad.Text);
+                komut.Parameters.AddWithValue("@p3", 
+                MskTC.Text);
+                komut.Parameters.AddWithValue("@p4", 
+                MskTelefon.Text);
+                komut.Parameters.AddWithValue("@p5", 
+                TxtSifre.Text);
+                komut.Parameters.AddWithValue("@p6", 
+                CmbCinsiyet.Text);
+                komut.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Kaydýnýz gerçekleþmiþtir. 
+                Þifreniz: " + TxtSifre.Text, "Bilgi",
+                 MessageBoxButtons.OK, 
+                 MessageBoxIcon.Information);
+            }
+        }
+
+        public static Boolean TCKontrol(String TC)
+        {
+            string tcNo = TC;
+            int toplam = 0; int toplam2 = 0; 
+            int toplam3 = 0;
+            if (tcNo.Length == 11)
+            {
+                if (Convert.ToInt32(tcNo[0].ToString()) != 
+                0) //tc kimlik numaranýn ilk hanesi 0 
+                deðilse
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        toplam = toplam +
+                         Convert.ToInt32(tcNo[i].
+                         ToString());
+                        if (i % 2 == 0)
+                        {
+                            if (i != 10)
+                            {
+                                toplam2 = toplam2 +
+                                 Convert.ToInt32(tcNo[i].
+                                 ToString()); // 7 ile 
+                                 çarpýlacak sayýlarý 
+                                 topluyoruz
+                            }
+
+                        }
+                        else
+                        {
+                            if (i != 9)
+                            {
+                                toplam3 = toplam3 +
+                                 Convert.ToInt32(tcNo[i].
+                                 ToString());
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Tc Kimlik Numaranýzýn 
+                    ilk hanesi 0 olamaz.");
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tc Kimlik Numarýnýz 11 
+                haneli olmak zorunda.Eksik ya da fazla 
+                deðer girdiniz.");
+                return false;
+
+            }
+            if (((toplam2 * 7) - toplam3) % 10 ==
+             Convert.ToInt32(tcNo[9].ToString()) && 
+             toplam % 10 == Convert.ToInt32(tcNo[10].
+             ToString()))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Tc Kimlik Numarasý 
+                Yanlýþ!");
+                return false;
+            }
+        }
+
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+ using System.Data.SqlClient;
+\end{lstlisting}
+
+komutuyla Sql komutlarýnýn çalýþmasý için SqlClient kütüphanesini ekledim.
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný yaptým.
+
+TCKontrol fonksiyonu içinde;
+
+\begin{lstlisting}
+public static Boolean TCKontrol(String TC)
+        {
+            string tcNo = TC;
+            int toplam = 0; int toplam2 = 0; 
+            int toplam3 = 0;
+            if (tcNo.Length == 11)
+            {
+                if (Convert.ToInt32(tcNo[0].ToString()) != 
+                0) //tc kimlik numaranýn ilk hanesi 0 
+                deðilse
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        toplam = toplam +
+                         Convert.ToInt32(tcNo[i].
+                         ToString());
+                        if (i % 2 == 0)
+                        {
+                            if (i != 10)
+                            {
+                                toplam2 = toplam2 +
+                                 Convert.ToInt32(tcNo[i].
+                                 ToString()); // 7 ile 
+                                 çarpýlacak sayýlarý 
+                                 topluyoruz
+                            }
+
+                        }
+                        else
+                        {
+                            if (i != 9)
+                            {
+                                toplam3 = toplam3 +
+                                 Convert.ToInt32(tcNo[i].
+                                 ToString());
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Tc Kimlik Numaranýzýn 
+                    ilk hanesi 0 olamaz.");
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tc Kimlik Numarýnýz 11 
+                haneli olmak zorunda.Eksik ya da fazla 
+                deðer girdiniz.");
+                return false;
+
+            }
+            if (((toplam2 * 7) - toplam3) % 10 ==
+             Convert.ToInt32(tcNo[9].ToString()) && 
+             toplam % 10 == Convert.ToInt32(tcNo[10]
+             .ToString()))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Tc Kimlik Numarasý 
+                Yanlýþ!");
+                return false;
+            }
+        }
+\end{lstlisting}
+
+komutlarýyla þunlarý yaptým:
+
+ Length komutuyla uzunluðun 11 olup olmadýðýný kontrol ettim. tc kimlik numaranýn ilk hanesi 0 deðilse dedim ve tc kimlik numaranýn ilk hanesinin 0 olup olmadýðýný kontrol ettim. Ýndis deðiþkeni i'yi 0'dan 10'a kadar artýrdým. TC formülüne göre yaptýðým sistemde tcNo'nun ilk 10 elemanýný tamsayýya çevirip topladým ve toplam deðiþkenine aktardým. tcNo'nun 1,3,5,7 ve 9. elemanlarýný 0'dan baþlattýðýmýz i 10 olmamak koþuluyla tamsayýya çevirip topladým ve toplam2 deðiþkenine aktardým. Burada 7 ile çarpýlacak sayýlarý topluyoruz. 2,4,6 ve 8. elemanlarýný 0'dan baþlattýðýmýz i 10 olmamak koþuluyla tamsayýya çevirip topladým ve toplam3 deðiþkenine aktardým.
+ 
+ tc kimlik numaranýn ilk hanesi 0 deðilse koþulunda deðilse deyip eðer öyleyse yani tcnin ilk hanesi 0'sa "Tc Kimlik Numaranýzýn ilk hanesi 0 olamaz." uyarý mesajý verdirdim. Uzunluðun 11 olup olmadýðýný kontrol ettiðim koþulda deðilse deyip eðer tc uzunluðu 11 deðilse "Tc Kimlik Numarýnýz 11 haneli olmak zorunda.Eksik ya da fazla deðer girdiniz." uyarý mesajý verdirdim. 
+ 
+ Formüle göre toplam2'nin 7 katýnýn toplam3'ten farkýnýn mod 10'dan kalaný tc'nin 10. elemanýyla eþitse ve toplam'ýn mod 10'dan kalaný tc'nin 11. elemanýna eþitse dedim ve doðru deðerini döndür dedim. Deðilse Tc "Kimlik Numarasý Yanlýþ!" uyarý mesajýný göster ve yanlýþ döndür dedim.
+
+BtnKayitYap\_Click içinde;
+
+\begin{lstlisting}
+if ( TCKontrol(MskTC.Text) ) {
+                SqlCommand komut = new SqlCommand("insert 
+                into
+                 Tbl_Hastalar(HastaAd,HastaSoyad,HastaTC,
+                 HastaTelefon,HastaSifre,HastaCinsiyet)
+                  values(@p1,@p2,@p3,@p4,@p5,@p6)", 
+                  bgl.baglanti());
+                komut.Parameters.AddWithValue("@p1", 
+                TxtAd.Text);
+                komut.Parameters.AddWithValue("@p2", 
+                TxtSoyad.Text);
+                komut.Parameters.AddWithValue("@p3", 
+                MskTC.Text);
+                komut.Parameters.AddWithValue("@p4", 
+                MskTelefon.Text);
+                komut.Parameters.AddWithValue("@p5", 
+                TxtSifre.Text);
+                komut.Parameters.AddWithValue("@p6", 
+                CmbCinsiyet.Text);
+                komut.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Kaydýnýz gerçekleþmiþtir. 
+                Þifreniz: " + TxtSifre.Text, "Bilgi",
+                 MessageBoxButtons.OK,
+                  MessageBoxIcon.Information);
+            }
+\end{lstlisting}
+
+komutlarýyla tc kontrolü saðlandýktan sonra ad, soyad, tc, telefon, þifre ve cinsiyet  parametreleriyle Hastalar tablosuna veri kaydý yaptým. Sorguyu çalýþtýr dedim ve baðlantýyý kapattým. Bilgi için "Kaydýnýz gerçekleþmiþtir. Þifreniz: " diyerek þifresini de söyleyerek bilgi mesajý verdim.
+
+\textbf{Dosya 4:} Hasta Detay Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmHastaDetay : Form
+    {
+        public FrmHastaDetay()
+        {
+            InitializeComponent();
+        }
+
+        public string tc;
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        private void FrmHastaDetay_Load(object sender, 
+        EventArgs e)
+        {
+            LblTC.Text = tc;
+            //Ad Soyad Çekme
+            SqlCommand komut = new SqlCommand("select 
+            HastaAd,HastaSoyad from Tbl_Hastalar where 
+            HastaTC=@p1", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", tc);
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                LblAdSoyad.Text = dr[0] + " " + dr[1];
+            }
+            bgl.baglanti().Close();
+
+            /*//Randevu Geçmiþi
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select 
+            * from Tbl_Randevular where Hastaid="+tc,
+            bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt; */
+
+            //Branþ Çekme
+
+            SqlCommand komut2 = new SqlCommand("select 
+            BransAd from Tbl_Branslar",bgl.baglanti());
+            SqlDataReader dr2 = komut2.ExecuteReader();
+            while (dr2.Read())
+            {
+                CmbBrans.Items.Add(dr2[0]);
+            }
+            bgl.baglanti().Close();
+
+            DataTable dt2 = new DataTable();
+            SqlDataAdapter da2 = new SqlDataAdapter("SELECT
+             Tbl_Randevular.Randevuid, Tbl_Doktorlar.
+             DoktorAd, Tbl_Doktorlar.DoktorSoyad,
+              Tbl_Randevular.RandevuTarih, Tbl_Randevular.
+              RandevuSaat, Tbl_Randevular.RandevuDurum,
+               Tbl_Randevular.Sikayet FROM Tbl_Randevular,
+                Tbl_Doktorlar WHERE Hastaid IN (select 
+                Hastaid from Tbl_Hastalar where HastaTC = 
+                '" + tc + "' and RandevuDurum='True') AND
+                 Tbl_Randevular.Doktorid = 
+                 Tbl_Doktorlar.Doktorid", bgl.baglanti());
+            da2.Fill(dt2);
+            dataGridView1.DataSource = dt2;
+        }
+
+        private void CmbBrans_SelectedIndexChanged(object 
+        sender, EventArgs e)
+        {
+            CmbDoktor.Items.Clear();
+            SqlCommand komut3 = new SqlCommand("SELECT
+             DoktorAd,DoktorSoyad FROM Tbl_Doktorlar 
+             WHERE Bransid IN (select Bransid from 
+             tbl_Branslar where BransAd LIKE @p1)", 
+             bgl.baglanti());
+            komut3.Parameters.AddWithValue("@p1", 
+            CmbBrans.Text);
+            SqlDataReader dr3 = komut3.ExecuteReader();
+            while (dr3.Read())
+            {
+                CmbDoktor.Items.Add(dr3[0] + " " + dr3[1]);
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void CmbDoktor_SelectedIndexChanged(object 
+        sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Randevuid,RandevuTarih,RandevuSaat from 
+             Tbl_Randevular where Bransid IN (select 
+             Bransid FROM Tbl_Branslar WHERE BransAd LIKE 
+             '" + CmbBrans.Text + "') and Doktorid IN 
+             (select Doktorid FROM Tbl_Doktorlar WHERE 
+             DoktorAd + ' ' + DoktorSoyad LIKE '" + 
+             CmbDoktor.Text + "' and RandevuDurum='False') 
+             ", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView2.DataSource = dt;
+        }
+
+        private void LnkBilgiDuzenle_LinkClicked(object 
+        sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmBilgiDuzenle fr = new FrmBilgiDuzenle();
+            fr.TCno = LblTC.Text;
+            fr.Show();
+        }
+
+        private void dataGridView2_CellClick(object sender,
+         DataGridViewCellEventArgs e)
+        {
+            int secilen = dataGridView2.SelectedCells[0].
+            RowIndex;
+            Txtid.Text = dataGridView2.Rows[secilen].
+            Cells[0].Value.ToString();
+        }
+
+        public string RandevuTarihi, RandevuSaati;
+
+        private void dataGridView2_CellContentClick(object 
+        sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs 
+        e)
+        {
+            SqlCommand komut = new SqlCommand("UPDATE 
+            Tbl_Randevular SET RandevuDurum='False', 
+            Hastaid=null WHERE Randevuid='" + Txtid.Text + 
+            "' ", bgl.baglanti());
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu iptal edildi.", 
+            "Bilgi", MessageBoxButtons.OK, 
+            MessageBoxIcon.Information);
+
+            TabloGuncelle();
+
+        }
+
+        private void dataGridView1_CellClick(object sender,
+         DataGridViewCellEventArgs e)
+        {
+            int secilen = dataGridView1.SelectedCells[0].
+            RowIndex;
+            Txtid.Text = dataGridView1.Rows[secilen].
+            Cells[0].Value.ToString();
+        }
+
+        private void TabloGuncelle()
+        {
+            //Tablo Güncelleme
+            DataTable dt2 = new DataTable();
+            SqlDataAdapter da2 = new SqlDataAdapter("SELECT
+             Tbl_Randevular.Randevuid, Tbl_Doktorlar.
+             DoktorAd, Tbl_Doktorlar.DoktorSoyad,
+              Tbl_Randevular.RandevuTarih, Tbl_Randevular.
+              RandevuSaat, Tbl_Randevular.RandevuDurum,
+               Tbl_Randevular.Sikayet FROM Tbl_Randevular,
+                Tbl_Doktorlar WHERE Hastaid IN (select 
+                Hastaid from Tbl_Hastalar where HastaTC = 
+                '" + tc + "' and RandevuDurum='True') AND
+                 Tbl_Randevular.Doktorid = Tbl_Doktorlar.
+                 Doktorid", bgl.baglanti());
+            da2.Fill(dt2);
+            dataGridView1.DataSource = dt2;
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Randevuid,RandevuTarih,RandevuSaat from 
+             Tbl_Randevular where Bransid IN (select 
+             Bransid FROM Tbl_Branslar WHERE BransAd LIKE 
+             '" + CmbBrans.Text + "') and Doktorid IN 
+             (select Doktorid FROM Tbl_Doktorlar WHERE 
+             DoktorAd + ' ' + DoktorSoyad LIKE '" + 
+             CmbDoktor.Text + "' and RandevuDurum='False') 
+             ", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView2.DataSource = dt;
+        }
+
+        private void button2_Click(object sender, 
+        EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BtnRandevuAl_Click(object sender, 
+        EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("UPDATE 
+            Tbl_Randevular SET RandevuDurum='True',
+            Hastaid=(SELECT Hastaid FROM Tbl_Hastalar 
+            WHERE HastaTC ='" + tc + "'),Sikayet=@r2 
+            WHERE Randevuid='" + Txtid.Text + "' ", 
+            bgl.baglanti());
+            komut.Parameters.AddWithValue("@r2", 
+            RchSikayet.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu oluþturuldu.", 
+            "Bilgi", MessageBoxButtons.OK, 
+            MessageBoxIcon.Information);
+
+            TabloGuncelle();
+            
+
+
+            /*SqlCommand komut = new SqlCommand("insert 
+            into Tbl_Randevular
+             (RandevuDurum,Hastaid,Sikayet,Doktorid,
+             Bransid) SELECT 1,(SELECT Hastaid FROM 
+             Tbl_Hastalar WHERE HastaTC ='"+ tc +"'), 
+             @r2, (SELECT Doktorid from Tbl_Doktorlar 
+             WHERE DoktorAd+' '+DoktorSoyad ='"+ 
+             CmbDoktor.Text + "'),(SELECT Bransid from 
+             Tbl_Branslar WHERE BransAd ='" + 
+             CmbBrans.Text + "')", bgl.baglanti());
+            komut.Parameters.AddWithValue("@r2", 
+            RchSikayet.Text);
+            komut.Parameters.AddWithValue("@r3", 
+            Txtid.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+
+            //dataGridView2_CellClick özelliði çalýþmadýðý 
+            için Randevuid gelmiyor ve aþaðýdaki kodda 
+            veri gelirken hata veriyor.
+            SqlCommand komut2 = new SqlCommand("select
+             RandevuTarih,RandevuSaat from Tbl_Randevular 
+             where Randevuid=@r4", bgl.baglanti());
+            komut2.Parameters.AddWithValue("@r4", 
+            Txtid.Text);
+            SqlDataReader dr = komut2.ExecuteReader();
+            RandevuTarihi = dr[1].ToString();
+            RandevuSaati = dr[2].ToString();
+            MessageBox.Show(CmbBrans.Text + " bölümünden " 
+            + CmbDoktor.Text + " doktordan \n" + 
+            RandevuTarihi + " tarihinde " + RandevuSaati +
+             " ve saatinde randevunuz alýnmýþtýr.", 
+             "Bilgi", MessageBoxButtons.OK, 
+             MessageBoxIcon.Information);
+            bgl.baglanti().Close();*/
+            //Buraya kadar!
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+ using System.Data.SqlClient;
+\end{lstlisting}
+
+komutuyla Sql komutlarýnýn çalýþmasý için SqlClient kütüphanesini ekledim.
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný yaptým.
+
+FrmHastaDetay\_Load içinde;
+
+\begin{lstlisting}
+LblTC.Text = tc;
+            //Ad Soyad Çekme
+            SqlCommand komut = new SqlCommand("select 
+            HastaAd,HastaSoyad from Tbl_Hastalar where 
+            HastaTC=@p1", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", tc);
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                LblAdSoyad.Text = dr[0] + " " + dr[1];
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+komutlarýnda
+
+\begin{lstlisting}
+public string tc;
+\end{lstlisting}
+
+komutuyla aldýðýmýz tc'yi etiket tc'nin yazýsýna yapýþtýrdým. Tc'yi gösterdim. Sonra ad soyad çekme yaptým. Hasta ad ve soyadý Hastalar tablosundan HastaTC'ye göre getirdim. dr isimli sql veri okuyucuyu çalýþtýrdým. Eðer okunduysa ad soyad etiketine arada boþluk býrakarak yazdýrdým ve sql baðlantýsýný kapattým. 
+
+\begin{lstlisting}
+SqlCommand komut2 = new SqlCommand("select BransAd from
+ Tbl_Branslar",bgl.baglanti());
+            SqlDataReader dr2 = komut2.ExecuteReader();
+            while (dr2.Read())
+            {
+                CmbBrans.Items.Add(dr2[0]);
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+komutlarýnda Branþlar tablosundan branþ adlarýný çektim. dr2 isimli sql veri okuyucuyu çalýþtýrdým. Eðer okunduysa branþ combobox'ýnýn içine yazdýrdým ve baðlantýyý kapattým. 
+
+\begin{lstlisting}
+DataTable dt2 = new DataTable();
+            SqlDataAdapter da2 = new SqlDataAdapter("SELECT
+             Tbl_Randevular.Randevuid, Tbl_Doktorlar.
+             DoktorAd, Tbl_Doktorlar.DoktorSoyad,
+              Tbl_Randevular.RandevuTarih, Tbl_Randevular.
+              RandevuSaat, Tbl_Randevular.RandevuDurum,
+               Tbl_Randevular.Sikayet FROM Tbl_Randevular, 
+               Tbl_Doktorlar WHERE Hastaid IN (select 
+               Hastaid from Tbl_Hastalar where HastaTC = 
+               '" + tc + "' and RandevuDurum='True') AND
+                Tbl_Randevular.Doktorid = 
+                Tbl_Doktorlar.Doktorid", bgl.baglanti());
+            da2.Fill(dt2);
+            dataGridView1.DataSource = dt2;
+\end{lstlisting}
+
+komutlarýnda dt2 isimli veri tablosu oluþturdum. da2 isimli sql veri uyarlayýcýsýna sql baðlatýsýný yapýp komutu yazdým. Sql komutunda randevu id, doktor ad ve soyad, randevu tarih, randevu saat, randevu durum ve randevu þikayetini HastaTC'sine göre randevu durumu aktif olan randevularý getir dedim. Sql sorgusuna göre dt2 isimli veri tablosunu doldur dedim. Veri kafesi görünümü 1'nin veri kaynaðýnda tabloyu gösterdim.
+
+CmbBrans\_SelectedIndexChanged içinde;
+
+\begin{lstlisting}
+CmbDoktor.Items.Clear();
+            SqlCommand komut3 = new SqlCommand("SELECT
+             DoktorAd,DoktorSoyad FROM Tbl_Doktorlar 
+             WHERE Bransid IN (select Bransid from 
+             tbl_Branslar where BransAd LIKE @p1)", 
+             bgl.baglanti());
+            komut3.Parameters.AddWithValue("@p1", 
+            CmbBrans.Text);
+            SqlDataReader dr3 = komut3.ExecuteReader();
+            while (dr3.Read())
+            {
+                CmbDoktor.Items.Add(dr3[0] + " " + dr3[1]);
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+komutlarýnda branþ combobox'ýný seçtiðimizde doktor combobox'ýnda eski doktor isim ve soyisimleri olmamasý için temizledim. Doktor combobox'ýna doktor ad ve soyadlarýný Doktorlar tablosundan branþ combobox'ýnda seçilen branþ adýna göre getirdim. dr3 isimli sql veri okuyucuyu komutla çalýþtýrdým. Okunurken doktor combobox'ýna doktor ad ve soyadlarýný arada boþluk býrakarak yazdýrdým ve baðlantýyý kapattým.
+
+CmbDoktor\_SelectedIndexChanged içinde;
+
+\begin{lstlisting}
+DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Randevuid,RandevuTarih,RandevuSaat from 
+             Tbl_Randevular where Bransid IN (select 
+             Bransid FROM Tbl_Branslar WHERE BransAd LIKE 
+             '" + CmbBrans.Text + "') and Doktorid IN 
+             (select Doktorid FROM Tbl_Doktorlar WHERE 
+             DoktorAd + ' ' + DoktorSoyad LIKE '" + 
+             CmbDoktor.Text + "' and RandevuDurum='False') 
+             ", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView2.DataSource = dt;
+\end{lstlisting}
+
+komutlarýnda dt isimli veri tablosu oluþturdum. da isimli sql veri uyarlayýcýsýna komutu yazdým. Randevu id, randevu tarih ve randevu saati Randevular tablosundan branþ adýna, doktor adýna ve soyadýna göre pasif olan randevularý sql baðlantýsýný saðlayarak getir dedim. da isimli sql veri uyarlayýcýsýnla dt isimli veri tablosunu doldur dedim. dt isimli veri tablosunu da veri kafesi görünümü 2'nin veri kaynaðýna aktar dedim. 
+
+LnkBilgiDuzenle\_LinkClicked içinde;
+
+\begin{lstlisting}
+FrmBilgiDuzenle fr = new FrmBilgiDuzenle();
+            fr.TCno = LblTC.Text;
+            fr.Show();
+\end{lstlisting}
+
+komutlarýnda FrmBilgiDuzenle formunun TCno'suna etiketteki TC'yi aktardým ve bilgi düzenle formunu gösterdim.
+
+dataGridView2\_CellClick içinde;
+
+\begin{lstlisting}
+int secilen = dataGridView2.SelectedCells[0].RowIndex;
+            Txtid.Text = dataGridView2.Rows[secilen].
+            Cells[0].Value.ToString();
+\end{lstlisting}
+
+komutlarýnda alýnmamýþ randevularýn yani pasif randevularýn id'sini Txtid'nin yazýsýna getirdim. Bunu veri kafesi gürünümü 2'den yaptým.
+
+TabloGuncelle fonksiyonu içinde;
+
+\begin{lstlisting}
+private void TabloGuncelle()
+        {
+            //Tablo Güncelleme
+            DataTable dt2 = new DataTable();
+            SqlDataAdapter da2 = new SqlDataAdapter("SELECT
+             Tbl_Randevular.Randevuid, Tbl_Doktorlar.
+             DoktorAd, Tbl_Doktorlar.DoktorSoyad, 
+             Tbl_Randevular.RandevuTarih, Tbl_Randevular.
+             RandevuSaat,Tbl_Randevular.RandevuDurum, 
+             Tbl_Randevular.Sikayet FROM Tbl_Randevular, 
+             Tbl_Doktorlar WHERE Hastaid IN (select Hastaid
+              from Tbl_Hastalar where HastaTC = 
+              '" + tc + "' and RandevuDurum='True') AND 
+              Tbl_Randevular.Doktorid = 
+              Tbl_Doktorlar.Doktorid", bgl.baglanti());
+            da2.Fill(dt2);
+            dataGridView1.DataSource = dt2;
+\end{lstlisting}
+
+komutlarýnda dt2 isimli veri tablosu oluþturdum. da2 isimli sql veri uyarlayýcýya sql komutunu yazdým. Randevu id, doktor ad ve soyad, randevu tarihi, randevu saati, randevu durumu ve randevu þikayetini Randevular ve Doktorlar tablosundan HastaTC'ye göre randevu durumu aktif olan randevularý sql baðlantýsýný saðlayarak getir dedim. da2 isimli sql veri uyarlayýcýya dt2 isimli veri tablosunu doldur dedim ve veri kafes görünümü 1'in veri kaynaðýna dt2 isimli veri tablosunu aktar dedim.
+
+TabloGuncelle fonksiyonu içinde;
+
+\begin{lstlisting}
+DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Randevuid,RandevuTarih,RandevuSaat from 
+             Tbl_Randevular where Bransid IN (select 
+             Bransid FROM Tbl_Branslar WHERE BransAd LIKE 
+             '" + CmbBrans.Text + "') and Doktorid IN 
+             (select Doktorid FROM Tbl_Doktorlar WHERE 
+             DoktorAd + ' ' + DoktorSoyad LIKE '" + 
+             CmbDoktor.Text + "' and RandevuDurum='False') 
+             ", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView2.DataSource = dt;
+        }
+\end{lstlisting}
+
+komutlarýnda dt isimli veri tablosu oluþturdum. da isimli sql veri uyarlayýcýya sql komutunu yazdým. Randevu id, randevu tarihi ve randevu saatini Randevular tablosundan branþ adý ve doktor ad ve soyadýna göre randevu durumu pasif yani alýnmamýþ olan randevularý sql baðlantýsýný saðlayarak getir dedim. da isimli sql veri uyarlayýcýya dt isimli veri tablosunu doldur dedim ve veri kafes görünümü 2'nin veri kaynaðýna dt isimli veri tablosunu aktar dedim.
+
+Bu TabloGuncelle fonksiyonu diðer týklamalarda kullanýlmak için yazýldý.
+
+button1\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komut = new SqlCommand("UPDATE Tbl_Randevular 
+SET RandevuDurum='False', Hastaid=null WHERE Randevuid='" 
++ Txtid.Text + "' ", bgl.baglanti());
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu iptal edildi.", 
+            "Bilgi", MessageBoxButtons.OK, 
+            MessageBoxIcon.Information);
+
+            TabloGuncelle();
+\end{lstlisting}
+
+Randevuyu iptal et butonunda randevular tablosundan randevu durumunu pasif ve tablolar id'lerle birbirine baðlý olduðundan Hastaid'sini null olarak Randevuid'ye göre sql baðlantýsýný saðlayarak güncelle dedim. Komutu çalýþtýrdým ve sql baðlantýsýný kapattým. "Randevu iptal edildi." þeklinde randevu iptal bilgi mesajý gösterdim ve tablolarý güncelledim.
+
+dataGridView1\_CellClick içinde;
+
+\begin{lstlisting}
+ int secilen = dataGridView1.SelectedCells[0].RowIndex;
+            Txtid.Text = dataGridView1.Rows[secilen].
+            Cells[0].Value.ToString();
+\end{lstlisting}
+
+komutlarýnda alýnmýþ randevularýn yani aktif randevularýn id'sini Txtid'nin yazýsýna getirdim. Bunu veri kafesi gürünümü 1'den yaptým.
+
+button2\_Click içinde;
+
+\begin{lstlisting}
+Application.Exit();
+\end{lstlisting}
+
+komutuyla uygulamadan çýk dedim.
+
+BtnRandevuAl\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komut = new SqlCommand("UPDATE Tbl_Randevular 
+SET RandevuDurum='True',Hastaid=(SELECT Hastaid FROM 
+Tbl_Hastalar WHERE HastaTC ='" + tc + "'),Sikayet=@r2 
+WHERE Randevuid='" + Txtid.Text + "' ", bgl.baglanti());
+            komut.Parameters.AddWithValue("@r2", 
+            RchSikayet.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu oluþturuldu.", 
+            "Bilgi", MessageBoxButtons.OK, 
+            MessageBoxIcon.Information);
+
+            TabloGuncelle();
+\end{lstlisting}
+
+Randevu al butonunda randevular tablosundan randevu durumunu aktif ve HastaTC'sine göre Hastaid'sini ve þikayeti Randevuid'sine göre sql baðlantýsýný saðlayarak güncelledim. Þikayeti komuta parametre olarak gönderdim. Komutu çalýþtýrýp sql baðlantýsýný kapattým. "Randevu oluþturuldu." þeklinde bilgi mesajý verdim ve tablolarý güncelledim.
+
+\textbf{Dosya 5:} Bilgi Düzenle Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmBilgiDuzenle : Form
+    {
+        public FrmBilgiDuzenle()
+        {
+            InitializeComponent();
+        }
+
+        public string TCno;
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+        private void FrmBilgiDuzenle_Load(object sender, 
+        EventArgs e)
+        {
+            MskTC.Text = TCno;
+            SqlCommand komut = new SqlCommand("select * 
+            from Tbl_Hastalar where HastaTC=@p1", 
+            bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", 
+            MskTC.Text);
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                TxtAd.Text = dr[1].ToString();
+                TxtSoyad.Text = dr[2].ToString();
+                MskTelefon.Text = dr[4].ToString();
+                TxtSifre.Text = dr[5].ToString();
+                CmbCinsiyet.Text = dr[6].ToString();
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void BtnBilgiGuncelle_Click(object sender, 
+        EventArgs e)
+        {
+            if (FrmHastaKayit.TCKontrol(MskTC.Text)) {
+                SqlCommand komut2 = new SqlCommand("update 
+                Tbl_Hastalar set HastaAd=@p1, 
+                HastaSoyad=@p2, HastaTelefon=@p3, 
+                HastaSifre=@p4, HastaCinsiyet=@p5 where 
+                HastaTC=@p6", bgl.baglanti());
+                komut2.Parameters.AddWithValue("@p1", 
+                TxtAd.Text);
+                komut2.Parameters.AddWithValue("@p2", 
+                TxtSoyad.Text);
+                komut2.Parameters.AddWithValue("@p3", 
+                MskTelefon.Text);
+                komut2.Parameters.AddWithValue("@p4", 
+                TxtSifre.Text);
+                komut2.Parameters.AddWithValue("@p5", 
+                CmbCinsiyet.Text);
+                komut2.Parameters.AddWithValue("@p6", 
+                MskTC.Text);
+                komut2.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Bilgileriniz güncellendi."
+                , "Bilgi", MessageBoxButtons.OK,
+                 MessageBoxIcon.Information);
+
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+ using System.Data.SqlClient;
+\end{lstlisting}
+
+komutuyla Sql komutlarýnýn çalýþmasý için SqlClient kütüphanesini ekledim.
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný yaptým.
+
+\begin{lstlisting}
+public string TCno;
+\end{lstlisting}
+
+komutuyla her yerden ulaþýlabilecek TCno'yu tanýmladým.
+
+FrmBilgiDuzenle\_Load içinde;
+
+\begin{lstlisting}
+MskTC.Text = TCno;
+            SqlCommand komut = new SqlCommand("select * 
+            from Tbl_Hastalar where HastaTC=@p1", 
+            bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", 
+            MskTC.Text);
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                TxtAd.Text = dr[1].ToString();
+                TxtSoyad.Text = dr[2].ToString();
+                MskTelefon.Text = dr[4].ToString();
+                TxtSifre.Text = dr[5].ToString();
+                CmbCinsiyet.Text = dr[6].ToString();
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+komutlarýnda TCno'yu MskTC'nin yazýsýna aktardým. Hastalar tablosundan HastaTC'ye göre MskTC'nin yazýsýný parametre alarak verileri getiren komutu yazdým. dr isimli sql veri okuyucuyu komuta göre çalýþtýrdým. Okunurken ad, soyad ve þifreyi text'e, telefonu masked text'e ve cinsiyeti combobox'a bilgileri aktardým. Sonra baðlantýyý kapattým.
+
+BtnBilgiGuncelle\_Click içinde;
+
+\begin{lstlisting}
+if (FrmHastaKayit.TCKontrol(MskTC.Text)) {
+                SqlCommand komut2 = new SqlCommand("update 
+                Tbl_Hastalar set HastaAd=@p1, 
+                HastaSoyad=@p2, HastaTelefon=@p3, 
+                HastaSifre=@p4, HastaCinsiyet=@p5 where 
+                HastaTC=@p6", bgl.baglanti());
+                komut2.Parameters.AddWithValue("@p1", 
+                TxtAd.Text);
+                komut2.Parameters.AddWithValue("@p2", 
+                TxtSoyad.Text);
+                komut2.Parameters.AddWithValue("@p3", 
+                MskTelefon.Text);
+                komut2.Parameters.AddWithValue("@p4", 
+                TxtSifre.Text);
+                komut2.Parameters.AddWithValue("@p5", 
+                CmbCinsiyet.Text);
+                komut2.Parameters.AddWithValue("@p6", 
+                MskTC.Text);
+                komut2.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Bilgileriniz güncellendi."
+                , "Bilgi", MessageBoxButtons.OK,
+                 MessageBoxIcon.Information);
+            }
+\end{lstlisting}
+
+komutlarýnda TC gerçekse iþlemleri yapacak. Önce TC kontrolü yaptým. Sql komutunda Hastalar tablosunda hasta ad, hasta soyad, hasta telefon, hasta þifre ve hasta cinsiyeti HastaTC'ye göre ilgili parametreleri alarak ve sql baðlantýsýný yaparak yazdým ve çalýþtýrdým. Sonra sql baðlantýsýný kapatýp "Bilgileriniz güncellendi." þeklinde bilgi mesajý verdirdim.
+
+\textbf{Form 6:} Doktor Detay Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmDoktorDetay : Form
+    {
+        public FrmDoktorDetay()
+        {
+            InitializeComponent();
+        }
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        public string DoktorTCsi;
+        private void FrmDoktorDetay_Load(object sender, 
+        EventArgs e)
+        {
+            LblTC.Text = DoktorTCsi;
+            //Doktor Ad Soyad Çekme
+            SqlCommand komut = new SqlCommand("select
+             DoktorAd,DoktorSoyad,Doktorid from 
+             Tbl_Doktorlar where DoktorTC=@d1", 
+             bgl.baglanti());
+            komut.Parameters.AddWithValue("@d1", 
+            LblTC.Text);
+            SqlDataReader dr = komut.ExecuteReader();
+
+            //Doktor Ad, Soyad ve Randevu Listesi
+            while (dr.Read())
+            {
+                String DoktorAd = dr[0].ToString();
+                String DoktorSoyad = dr[1].ToString();
+                LblAdSoyad.Text = DoktorAd + " " + 
+                DoktorSoyad;
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter
+                ("select Tbl_Randevular.Randevuid, 
+                Tbl_Hastalar.HastaAd, 
+                Tbl_Hastalar.HastaSoyad, 
+                Tbl_Randevular.RandevuTarih, 
+                Tbl_Randevular.RandevuSaat, 
+                Tbl_Randevular.RandevuDurum, 
+                Tbl_Randevular.Sikayet from 
+                Tbl_Randevular, Tbl_Hastalar where 
+                Doktorid='" + dr[2].ToString() + "' 
+                and RandevuDurum='True' AND 
+                Tbl_Randevular.Hastaid = 
+                Tbl_Hastalar.Hastaid", bgl.baglanti());
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void BtnGuncelle_Click(object sender, 
+        EventArgs e)
+        {
+            FrmDoktorBilgiDuzenle dbd = new 
+            FrmDoktorBilgiDuzenle();
+            dbd.DoktorTCsidir = LblTC.Text;
+            dbd.Show();
+        }
+
+        private void BtnDuyurular_Click(object sender, 
+        EventArgs e)
+        {
+            FrmDuyurular d = new FrmDuyurular();
+            d.Show();
+        }
+
+        private void BtnCikis_Click(object sender, 
+        EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void dataGridView1_CellClick(object sender,
+         DataGridViewCellEventArgs e)
+        {
+            int secilen = dataGridView1.SelectedCells[0].
+            RowIndex;
+            RchSikayet.Text = dataGridView1.Rows[secilen].
+            Cells[4].Value.ToString();
+            txtRandevuid.Text = dataGridView1.
+            Rows[secilen].Cells[0].Value.ToString();
+        }
+
+        private void dataGridView1_CellContentClick(object 
+        sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnTamamla_Click(object sender, 
+        EventArgs e)
+        {
+            SqlCommand komut2 = new SqlCommand("delete from
+             Tbl_Randevular where Randevuid=@p1", 
+             bgl.baglanti());
+            komut2.Parameters.AddWithValue("@p1", 
+            txtRandevuid.Text);
+            komut2.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu Tamamlandý.", "Bilgi",
+             MessageBoxButtons.OK, 
+             MessageBoxIcon.Information);
+            TabloGuncelle();
+        }
+
+        private void TabloGuncelle()
+        {
+            LblTC.Text = DoktorTCsi;
+            //Doktor Ad Soyad Çekme
+            SqlCommand komut = new SqlCommand("select
+             DoktorAd,DoktorSoyad,Doktorid from 
+             Tbl_Doktorlar where DoktorTC=@d1", 
+             bgl.baglanti());
+            komut.Parameters.AddWithValue("@d1", 
+            LblTC.Text);
+            SqlDataReader dr = komut.ExecuteReader();
+
+            while (dr.Read())
+            {
+                String DoktorAd = dr[0].ToString();
+                String DoktorSoyad = dr[1].ToString();
+                LblAdSoyad.Text = DoktorAd + " " + 
+                DoktorSoyad;
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter
+                ("select Tbl_Randevular.Randevuid, 
+                Tbl_Hastalar.HastaAd, 
+                Tbl_Hastalar.HastaSoyad, 
+                Tbl_Randevular.RandevuTarih, 
+                Tbl_Randevular.RandevuSaat, 
+                Tbl_Randevular.RandevuDurum, 
+                Tbl_Randevular.Sikayet from 
+                Tbl_Randevular, Tbl_Hastalar where 
+                Doktorid='" + dr[2].ToString() + "' and
+                 RandevuDurum='True' AND Tbl_Randevular.
+                 Hastaid = Tbl_Hastalar.Hastaid", 
+                 bgl.baglanti());
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            bgl.baglanti().Close();
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+ using System.Data.SqlClient;
+\end{lstlisting}
+
+komutuyla Sql komutlarýnýn çalýþmasý için SqlClient kütüphanesini ekledim.
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný yaptým.
+
+\begin{lstlisting}
+public string DoktorTCsi;
+\end{lstlisting}
+
+komutuyla her yerden ulaþýlabilecek TCno'yu tanýmladým.
+
+FrmDoktorDetay\_Load içinde;
+
+\begin{lstlisting}
+LblTC.Text = DoktorTCsi;
+            //Doktor Ad Soyad Çekme
+            SqlCommand komut = new SqlCommand("select
+             DoktorAd,DoktorSoyad,Doktorid from 
+             Tbl_Doktorlar where DoktorTC=@d1", 
+             bgl.baglanti());
+            komut.Parameters.AddWithValue("@d1", 
+            LblTC.Text);
+            SqlDataReader dr = komut.ExecuteReader();
+
+            //Doktor Ad, Soyad ve Randevu Listesi
+            while (dr.Read())
+            {
+                String DoktorAd = dr[0].ToString();
+                String DoktorSoyad = dr[1].ToString();
+                LblAdSoyad.Text = DoktorAd + " " + 
+                DoktorSoyad;
+\end{lstlisting}
+
+DoktorTCsi'ni LblTC'nin yazýsýna aktardým. Sql komutunda doktor ad, doktor soyad ve doktor id'yi  Doktorlar tablosundan DoktorTC'ye göre LblTC'nin yazýsýný parametre alarak ve sql baðlatýsýný  yaparak yazdým ve çalýþtýrdým.
+
+dr isimli sql veri okuyucuyu komutla çalýþtýrdým. Okurken Doktor ad ve soyadý aldým ve etikete aktardým.
+
+\begin{lstlisting}
+DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter
+                ("select Tbl_Randevular.Randevuid, 
+                Tbl_Hastalar.HastaAd, 
+                Tbl_Hastalar.HastaSoyad, 
+                Tbl_Randevular.RandevuTarih, 
+                Tbl_Randevular.RandevuSaat, 
+                Tbl_Randevular.RandevuDurum, 
+                Tbl_Randevular.Sikayet from 
+                Tbl_Randevular, Tbl_Hastalar where 
+                Doktorid='" + dr[2].ToString() + "' 
+                and RandevuDurum='True' AND 
+                Tbl_Randevular.Hastaid = 
+                Tbl_Hastalar.Hastaid", bgl.baglanti());
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+dt isimli veri tablosunu oluþturdum. Sql veri uyarlayýcýda sql komutunu yazdým. Sql komutunda randevu id, hasta ad ve soyad, randevu tarihi, randevu saati, randevu durum ve randevu þikayeti randevular ve hastalar tablosundan doktor id'ye göre randevu durumu aktif olan randevularý sql baðlantýsýný saðlayarak getir dedim. da isimli sql veri uyarlayýcýsýna dt isimli veri tablosunu doldur dedim. Veri kafesi görünümü 1'in veri kaynaðýna dt isimli veri tablosunu aktardým ve sql baðlantýsýný kapattým.
+
+BtnDuyurular\_Click içinde;
+
+\begin{lstlisting}
+FrmDuyurular d = new FrmDuyurular();
+            d.Show();
+\end{lstlisting}
+
+komutlarýnda FrmDuyurular formunu açtým.
+
+BtnCikis\_Click içinde;
+
+\begin{lstlisting}
+Application.Exit();
+\end{lstlisting}
+
+komutuyla uygulamadan çýk dedim.
+
+dataGridView1\_CellClick içinde;
+
+\begin{lstlisting}
+int secilen = dataGridView1.SelectedCells[0].RowIndex;
+            RchSikayet.Text = dataGridView1.Rows[secilen].
+            Cells[6].Value.ToString();
+            txtRandevuid.Text = dataGridView1.
+            Rows[secilen].Cells[0].Value.ToString();
+\end{lstlisting}
+
+komutlarýnda randevu id ve þikayeti ilgili yerlere  veri kafesi görünümü 1'de týklayýnca aktardým.
+
+TabloGuncelle fonksiyonu içinde;
+
+\begin{lstlisting}
+LblTC.Text = DoktorTCsi;
+            //Doktor Ad Soyad Çekme
+            SqlCommand komut = new SqlCommand("select
+             DoktorAd,DoktorSoyad,Doktorid from 
+             Tbl_Doktorlar where DoktorTC=@d1", 
+             bgl.baglanti());
+            komut.Parameters.AddWithValue("@d1", 
+            LblTC.Text);
+            SqlDataReader dr = komut.ExecuteReader();
+
+            while (dr.Read())
+            {
+                String DoktorAd = dr[0].ToString();
+                String DoktorSoyad = dr[1].ToString();
+                LblAdSoyad.Text = DoktorAd + " " + 
+                DoktorSoyad;
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter
+                ("select Tbl_Randevular.Randevuid, 
+                Tbl_Hastalar.HastaAd, 
+                Tbl_Hastalar.HastaSoyad, 
+                Tbl_Randevular.RandevuTarih, 
+                Tbl_Randevular.RandevuSaat, 
+                Tbl_Randevular.RandevuDurum, 
+                Tbl_Randevular.Sikayet from 
+                Tbl_Randevular, Tbl_Hastalar where 
+                Doktorid='" + dr[2].ToString() + "' 
+                and RandevuDurum='True' AND 
+                Tbl_Randevular.Hastaid = 
+                Tbl_Hastalar.Hastaid", bgl.baglanti());
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+DoktorTCsi'ni LblTC'nin yazýsýna aktardým. Sql komutunda doktor ad, doktor soyad ve doktor id'yi  Doktorlar tablosundan DoktorTC'ye göre LblTC'nin yazýsýný parametre alarak ve sql baðlatýsýný  yaparak yazdým ve çalýþtýrdým.
+
+dr isimli sql veri okuyucuyu komutla çalýþtýrdým. Okurken Doktor ad ve soyadý aldým ve etikete aktardým.
+
+dt isimli veri tablosunu oluþturdum. Sql veri uyarlayýcýda sql komutunu yazdým. Sql komutunda randevu id, hasta ad ve soyad, randevu tarihi, randevu saati, randevu durum ve randevu þikayeti randevular ve hastalar tablosundan doktor id'ye göre randevu durumu aktif olan randevularý sql baðlantýsýný saðlayarak getir dedim. da isimli sql veri uyarlayýcýsýna dt isimli veri tablosunu doldur dedim. Veri kafesi görünümü 1'in veri kaynaðýna dt isimli veri tablosunu aktardým ve sql baðlantýsýný kapattým.
+
+btnTamamla\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komut2 = new SqlCommand("delete from 
+Tbl_Randevular where Randevuid=@p1", bgl.baglanti());
+            komut2.Parameters.AddWithValue("@p1", 
+            txtRandevuid.Text);
+            komut2.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu Tamamlandý.", "Bilgi",
+             MessageBoxButtons.OK, 
+             MessageBoxIcon.Information);
+            TabloGuncelle();
+\end{lstlisting}
+
+komutlarýnda Sql komutunu yazdým. Sql komutunda randevular tablosundan Randevuid'ye göre txtRandevuid'nin yazýsýný parametre alarak randevuyu sildim ve sorguyu çalýþtýrdým. Sonra baðlantýyý kapatýp "Randevu Tamamlandý." þeklinde bilgi mesajý verdirdim. En son aktif randevu tablosunu güncelledim.
+
+\textbf{Form 7:} Duyurular Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmDuyurular : Form
+    {
+        public FrmDuyurular()
+        {
+            InitializeComponent();
+        }
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        private void FrmDuyurular_Load(object sender, 
+        EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Duyuruid,Duyuru from Tbl_Duyurular",
+             bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+ using System.Data.SqlClient;
+\end{lstlisting}
+
+komutuyla Sql komutlarýnýn çalýþmasý için SqlClient kütüphanesini ekledim.
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný yaptým.
+
+FrmDuyurular\_Load içinde;
+
+\begin{lstlisting}
+DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Duyuruid,Duyuru from Tbl_Duyurular",
+             bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+\end{lstlisting}
+
+dt isimli veri tablosu oluþturdum. da isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutunda Duyurular tablosundan Duyuruid ve Duyuru'yu sql baðlatýsýný da yaparak çaðýrdým. da isimli sql veri uyarlayýcýya dt isimli veri tablosunu doldur dedim. Veri kafesi Görünümü 1'in veri kaynaðýna dt isimli veri tablosunu aktar dedim.
+
+\textbf{Dosya 8:} Sekreter Detay Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmSekreterDetay : Form
+    {
+        public FrmSekreterDetay()
+        {
+            InitializeComponent();
+        }
+
+        public string SekreterTC;
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        private void FrmSekreterDetay_Load(object sender, 
+        EventArgs e)
+        {
+            LblTC.Text = SekreterTC;
+            //Sekreter AdSoyad Çekme
+            SqlCommand komut = new SqlCommand("select
+             SekreterAd,SekreterSoyad from Tbl_Sekreterler 
+             where SekreterTC=@p1",bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", 
+            LblTC.Text);
+            SqlDataReader dr1 = komut.ExecuteReader();
+            while (dr1.Read())
+            {
+                LblAdSoyad.Text = dr1[0].ToString() + " " +
+                 dr1[1].ToString();
+            }
+            bgl.baglanti().Close();
+
+            //Randevularý Datagridview1'e aktarma
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Tbl_Randevular.Randevuid, 
+             Tbl_Doktorlar.DoktorAd, 
+             Tbl_Doktorlar.DoktorSoyad, 
+             Tbl_Branslar.BransAd, 
+             Tbl_Randevular.RandevuTarih, 
+             Tbl_Randevular.RandevuSaat, 
+             Tbl_Randevular.RandevuDurum, 
+             Tbl_Randevular.Sikayet from Tbl_Randevular, 
+             Tbl_Doktorlar, Tbl_Branslar WHERE 
+             Tbl_Randevular.Doktorid = Tbl_Doktorlar.
+             Doktorid AND Tbl_Randevular.Bransid = 
+             Tbl_Branslar.Bransid", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+
+            //Branþý Combobox'a aktarma
+            SqlCommand komut2 = new SqlCommand("select 
+            BransAd from Tbl_Branslar",bgl.baglanti());
+            SqlDataReader dr2 = komut2.ExecuteReader();
+            while (dr2.Read())
+            {
+                CmbBrans.Items.Add(dr2[0]);
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void TabloyuGuncelle()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Tbl_Randevular.Randevuid, 
+             Tbl_Doktorlar.DoktorAd, 
+             Tbl_Doktorlar.DoktorSoyad, 
+             Tbl_Branslar.BransAd, 
+             Tbl_Randevular.RandevuTarih, 
+             Tbl_Randevular.RandevuSaat, 
+             Tbl_Randevular.RandevuDurum, 
+             Tbl_Randevular.Sikayet from Tbl_Randevular, 
+             Tbl_Doktorlar, Tbl_Branslar WHERE 
+             Tbl_Randevular.Doktorid = Tbl_Doktorlar
+             .Doktorid AND Tbl_Randevular.Bransid =
+              Tbl_Branslar.Bransid", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void BtnKaydet_Click(object sender, 
+        EventArgs e)
+        {
+            SqlCommand komutkaydet = new SqlCommand("insert
+             into
+              Tbl_Randevular(RandevuTarih,RandevuSaat,
+              Bransid,Doktorid,RandevuDurum) values(@p1,@p2,
+              (SELECT Bransid FROM Tbl_Branslar WHERE 
+              BransAd='"+ CmbBrans.Text + "'),(SELECT 
+              Doktorid FROM Tbl_Doktorlar WHERE DoktorAd+'
+               '+DoktorSoyad='" + CmbDoktor.Text + "'),
+               'False')", bgl.baglanti());
+            komutkaydet.Parameters.AddWithValue("@p1", 
+            MskTarih.Text);
+            komutkaydet.Parameters.AddWithValue("@p2", 
+            MskSaat.Text);
+            komutkaydet.Parameters.AddWithValue("@p3",
+            CmbBrans.Text);
+            komutkaydet.Parameters.AddWithValue("@p4",
+            CmbDoktor.Text);
+            komutkaydet.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu oluþturuldu.","Bilgi",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information);
+            TabloyuGuncelle();
+        }
+
+        private void CmbBrans_SelectedIndexChanged(object 
+        sender, EventArgs e)
+        {
+            CmbDoktor.Items.Clear();
+            SqlCommand komut = new SqlCommand("select
+             DoktorAd,DoktorSoyad from Tbl_Doktorlar where 
+             Bransid = (SELECT Bransid FROM Tbl_Branslar 
+             WHERE BransAd='"+ CmbBrans.Text + "')", 
+             bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                CmbDoktor.Items.Add(dr[0] + " " + dr[1]);
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void BtnDuyuruOlustur_Click(object sender, 
+        EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("insert into
+             Tbl_Duyurular(Duyuru) values(@d1)", 
+             bgl.baglanti());
+            komut.Parameters.AddWithValue("@d1", 
+            RchDuyuru.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Duyuru oluþturuldu.","Bilgi",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information);
+        }
+
+        private void BtnDoktorPaneli_Click(object sender, 
+        EventArgs e)
+        {
+            FrmDoktorPaneli drp = new FrmDoktorPaneli();
+            drp.Show();
+        }
+
+        private void BtnBransPaneli_Click(object sender, 
+        EventArgs e)
+        {
+            FrmBransPaneli frb = new FrmBransPaneli();
+            frb.Show();
+        }
+
+        private void BtnRandevuListe_Click(object sender, 
+        EventArgs e)
+        {
+            FrmRandevuListesi rl = new FrmRandevuListesi();
+            rl.Show();
+        }
+
+        private void button1_Click(object sender, 
+        EventArgs e)
+        {
+            FrmDuyurular frd = new FrmDuyurular();
+            frd.Show();
+        }
+
+        private void BtnGuncelle_Click(object sender, 
+        EventArgs e)
+        {
+            //SqlCommand komut2 = new SqlCommand("update 
+            Tbl_Randevular set RandevuTarih=@p1, 
+            RandevuSaat=@p2, Bransid=(SELECT Bransid FROM 
+            Tbl_Branslar WHERE BransAd=@p3), Doktorid=
+            (SELECT Doktorid FROM Tbl_Doktorlar WHERE 
+            DoktorAd=@p4 and DoktorSoyad= @p5) where 
+            Randevuid=@p6", bgl.baglanti());
+
+            SqlCommand komut2 = new SqlCommand("update 
+            Tbl_Randevular set RandevuTarih=@p1, 
+            RandevuSaat=@p2 where Randevuid=@p6", 
+            bgl.baglanti());
+            komut2.Parameters.AddWithValue("@p1", 
+            MskTarih.Text);
+            komut2.Parameters.AddWithValue("@p2", 
+            MskSaat.Text);
+            komut2.Parameters.AddWithValue("@p3", 
+            CmbBrans.Text);
+            komut2.Parameters.AddWithValue("@p4", 
+            DoktorAd);
+            komut2.Parameters.AddWithValue("@p5", 
+            DoktorSoyad);
+            komut2.Parameters.AddWithValue("@p6", 
+            Txtid.Text);
+            komut2.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Bilgileriniz güncellendi.", 
+            "Bilgi", MessageBoxButtons.OK, 
+            MessageBoxIcon.Information);
+            TabloyuGuncelle();
+        }
+
+        String DoktorAd, DoktorSoyad;
+        private void dataGridView1_CellClick(object sender,
+         DataGridViewCellEventArgs e)
+        {
+            int secilen = dataGridView1.SelectedCells[0].
+            RowIndex;
+            Txtid.Text = dataGridView1.Rows[secilen].
+            Cells[0].Value.ToString();
+            MskTarih.Text = dataGridView1.Rows[secilen].
+            Cells[4].Value.ToString();
+            MskSaat.Text = dataGridView1.Rows[secilen].
+            Cells[5].Value.ToString();
+            CmbBrans.Text = dataGridView1.Rows[secilen].
+            Cells[3].Value.ToString();
+            CmbDoktor.Text = dataGridView1.Rows[secilen].
+            Cells[1].Value.ToString() + " " +
+             dataGridView1.Rows[secilen].
+            Cells[2].Value.ToString();
+            DoktorAd = dataGridView1.Rows[secilen].
+            Cells[1].Value.ToString();
+            DoktorSoyad = dataGridView1.Rows[secilen].
+            Cells[2].Value.ToString();
+        }
+
+        private void button2_Click(object sender, 
+        EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button3_Click(object sender, 
+        EventArgs e)
+        {
+            FrmDoktorVeBranslar frd = new 
+            FrmDoktorVeBranslar();
+            frd.Show();
+        }
+
+        private void button4_Click(object sender, 
+        EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("DELETE FROM 
+            Tbl_Randevular WHERE Randevuid='" + Txtid.Text 
+            + "'", bgl.baglanti());
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu silindi.", "Bilgi",
+             MessageBoxButtons.OK, 
+             MessageBoxIcon.Information);
+            TabloyuGuncelle();
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+ using System.Data.SqlClient;
+\end{lstlisting}
+
+komutuyla Sql komutlarýnýn çalýþmasý için SqlClient kütüphanesini ekledim.
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný yaptým.
+
+\begin{lstlisting}
+public string SekreterTC;
+\end{lstlisting}
+
+komutuyla SekreterTC deðiþkenine Sekreter TC'yi almak üzere diðer formlardan ulaþýlacak þekilde oluþturdum.
+
+FrmSekreterDetay\_Load içinde;
+
+\begin{lstlisting}
+LblTC.Text = SekreterTC;
+            //Sekreter AdSoyad Çekme
+            SqlCommand komut = new SqlCommand("select
+             SekreterAd,SekreterSoyad from Tbl_Sekreterler
+              where SekreterTC=@p1",bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", 
+            LblTC.Text);
+            SqlDataReader dr1 = komut.ExecuteReader();
+            while (dr1.Read())
+            {
+                LblAdSoyad.Text = dr1[0].ToString() + " " +
+                 dr1[1].ToString();
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+komutlarýnda SekreterTC'yi LblTC'nin yazýsýnda gösterdim. Sql komutta Sekreter ad ve soyadýný Sekreterler tablosundan SekreterTC'ye göre LblTC'nin yazýsýný parametre alarak ve sql baðlantýsýný saðlayarak yazdým. dr1 isimli sql veri okuyucuyu komutu okuyarak çalýþtýrdým. Okurken Sekreter ad ve soyadý arada boþluk býrakarak ad soyad etiketine yazdýrdým ve baðlantýyý kapattým.
+
+\begin{lstlisting}
+//Randevularý Datagridview1'e aktarma
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Tbl_Randevular.Randevuid, Tbl_Doktorlar.
+             DoktorAd, Tbl_Doktorlar.DoktorSoyad, 
+             Tbl_Branslar.BransAd, Tbl_Randevular.
+             RandevuTarih, Tbl_Randevular.RandevuSaat,
+              Tbl_Randevular.RandevuDurum, Tbl_Randevular.
+              Sikayet from Tbl_Randevular, Tbl_Doktorlar, 
+              Tbl_Branslar WHERE Tbl_Randevular.Doktorid =
+               Tbl_Doktorlar.Doktorid AND Tbl_Randevular.
+               Bransid = Tbl_Branslar.Bransid", 
+               bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+\end{lstlisting}
+
+dt isimli veri tablosunu oluþturdum. da isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutta randevu id'si, doktor adý ve soyadý, branþ adý, randevu tarihi, randevu saati, randevu durumu ve þikayeti randevular, doktorlar ve branþlar tablosundan sql baðlantýsýný yaparak çektim. da isimli sql veri uyarlayýcýya dt isimli veri tablosunu doldur dedim. Veri kafesi görünümü 1'in veri kaynaðýna dt isimli veri tablosunu aktardým.
+
+\begin{lstlisting}
+//Branþý Combobox'a aktarma
+            SqlCommand komut2 = new SqlCommand("select 
+            BransAd from Tbl_Branslar",bgl.baglanti());
+            SqlDataReader dr2 = komut2.ExecuteReader();
+            while (dr2.Read())
+            {
+                CmbBrans.Items.Add(dr2[0]);
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+komutlarýnda sql komutu yazdým. Sql komutta Branþlar tablosundan branþ adlarýný sql baðlantýsýný yaparak çektim. dr2 isimli sql veri okuyucuyu komutu okutarak çalýþtýrdým. Okurken branþ combobox'ýna branþlarý ekledim ve baðlantýyý kapattým.
+
+TabloyuGuncelle fonksiyonu içinde;
+
+\begin{lstlisting}
+DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Tbl_Randevular.Randevuid, Tbl_Doktorlar.
+             DoktorAd, Tbl_Doktorlar.DoktorSoyad, 
+             Tbl_Branslar.BransAd, Tbl_Randevular.
+             RandevuTarih, Tbl_Randevular.RandevuSaat,
+              Tbl_Randevular.RandevuDurum, Tbl_Randevular.
+              Sikayet from Tbl_Randevular, Tbl_Doktorlar, 
+              Tbl_Branslar WHERE Tbl_Randevular.Doktorid =
+               Tbl_Doktorlar.Doktorid AND Tbl_Randevular.
+               Bransid = Tbl_Branslar.Bransid", 
+               bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+\end{lstlisting}
+
+dt isimli veri tablosunu oluþturdum. da isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutta randevu id'si, doktor adý ve soyadý, branþ adý, randevu tarihi, randevu saati, randevu durumu ve þikayeti randevular, doktorlar ve branþlar tablosundan sql baðlantýsýný yaparak çektim. da isimli sql veri uyarlayýcýya dt isimli veri tablosunu doldur dedim. Veri kafesi görünümü 1'in veri kaynaðýna dt isimli veri tablosunu aktardým.
+
+BtnKaydet\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komutkaydet = new SqlCommand("insert into
+ Tbl_Randevular(RandevuTarih,RandevuSaat,Bransid,
+ Doktorid,RandevuDurum) values(@p1,@p2,(SELECT Bransid
+  FROM Tbl_Branslar WHERE BransAd='"+ CmbBrans.Text + "'),
+  (SELECT Doktorid FROM Tbl_Doktorlar WHERE DoktorAd+' '+
+  DoktorSoyad='" + CmbDoktor.Text + "'),'False')", 
+  bgl.baglanti());
+            komutkaydet.Parameters.AddWithValue("@p1", 
+            MskTarih.Text);
+            komutkaydet.Parameters.AddWithValue("@p2", 
+            MskSaat.Text);
+            komutkaydet.Parameters.AddWithValue("@p3",
+            CmbBrans.Text);
+            komutkaydet.Parameters.AddWithValue("@p4",
+            CmbDoktor.Text);
+            komutkaydet.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu oluþturuldu.","Bilgi",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information);
+            TabloyuGuncelle();
+\end{lstlisting}
+
+komutlarýnda sql komutu yazdým. Sql komutta randevular tablosuna randevu tarihi, randevu saati, branþ adýna göre branþ id'yi, doktor ad ve soyadýna göre doktor id'yi ve randevu durumunu pasif olarak sql baðlantýsýný saðlayýp p1 için MskTarih yazýsýný, p2 için MskSaat yazýsýný, p3 için CmbBrans yazýsýný ve p4 için CmbDoktor yazýsýný parametre olarak alýp kaydettim ve sql komutu çalýþtýrdým. Sonra baðlantýyý kapatýp "Randevu oluþturuldu." bilgi mesajý verdim ve randevular tablosunu güncelledim.
+
+CmbBrans\_SelectedIndexChanged içinde;
+
+\begin{lstlisting}
+CmbDoktor.Items.Clear();
+            SqlCommand komut = new SqlCommand("select
+             DoktorAd,DoktorSoyad from Tbl_Doktorlar 
+             where Bransid = (SELECT Bransid FROM 
+             Tbl_Branslar WHERE BransAd='"+ CmbBrans.Text 
+             + "')", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                CmbDoktor.Items.Add(dr[0] + " " + dr[1]);
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+komutlarýnda branþ combobox'ýný seçtiðimizde doktor combobox'ýný temizledim. Sql komutunda doktor ad ve soyadýný Doktorlar tablosundan branþ adýna göre branþ combobox'ýný parametre alarak ve sql baðlantýsýný yapýp getir dedim. dr adlý sql veri okuyucuyu komutu okuyarak çalýþtýr dedim. Okurken doktor combobox'ýna ad ve soyadý arada boþluk býrakarak ekle dedim ve baðlantýyý kapattým.
+
+BtnDuyuruOlustur\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komut = new SqlCommand("insert into 
+Tbl_Duyurular(Duyuru) values(@d1)", bgl.baglanti());
+            komut.Parameters.AddWithValue("@d1", 
+            RchDuyuru.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Duyuru oluþturuldu.","Bilgi",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information);
+\end{lstlisting}
+
+Sql komutta Duyurular tablosuna richtextbox'ýn yazýsýný parametre alarak ve sql baðlantýsýný yapýp duyuruyu kaydettim. Sql komutunu çalýþtýrdým ve baðlantýyý kapattým. Sonra "Duyuru oluþturuldu." þeklinde bilgi mesajý verdirdim.
+
+BtnRandevuListe\_Click içinde;
+
+\begin{lstlisting}
+FrmRandevuListesi rl = new FrmRandevuListesi();
+            rl.Show();
+\end{lstlisting}
+
+komutunda RandevuListesi formunu açtým.
+
+button1\_Click içinde;
+
+\begin{lstlisting}
+FrmDuyurular frd = new FrmDuyurular();
+            frd.Show();
+\end{lstlisting}
+
+komutunda Duyurular formunu açtým.
+
+BtnGuncelle\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komut2 = new SqlCommand("update Tbl_Randevular 
+set RandevuTarih=@p1, RandevuSaat=@p2 where Randevuid=@p6",
+ bgl.baglanti());
+            komut2.Parameters.AddWithValue("@p1", 
+            MskTarih.Text);
+            komut2.Parameters.AddWithValue("@p2", 
+            MskSaat.Text);
+            komut2.Parameters.AddWithValue("@p3", 
+            CmbBrans.Text);
+            komut2.Parameters.AddWithValue("@p4", 
+            DoktorAd);
+            komut2.Parameters.AddWithValue("@p5", 
+            DoktorSoyad);
+            komut2.Parameters.AddWithValue("@p6", 
+            Txtid.Text);
+            komut2.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Bilgileriniz güncellendi.", 
+            "Bilgi", MessageBoxButtons.OK, 
+            MessageBoxIcon.Information);
+            TabloyuGuncelle();
+\end{lstlisting}
+
+komutlarýnda sql komutunu yazdým. Sql komutunda randevular tablosunda randevu tarihi ve randevu saati randevu id'ye göre MskTarih'in yazýsýný ve MskSaat'in yazýsýný parametre alarak ve sql baðlantýsýný da yaparak güncelledim. Komutu çalýþtýrýp sql baðlantýsýný kapattým. Sonra "Bilgileriniz güncellendi." þeklinde bilgi mesajý verip randevular tablosunu güncelledim.
+
+dataGridView1\_CellClick içinde;
+
+\begin{lstlisting}
+int secilen = dataGridView1.SelectedCells[0].RowIndex;
+            Txtid.Text = dataGridView1.Rows[secilen].
+            Cells[0].Value.ToString();
+            MskTarih.Text = dataGridView1.Rows[secilen].
+            Cells[4].Value.ToString();
+            MskSaat.Text = dataGridView1.Rows[secilen].
+            Cells[5].Value.ToString();
+            CmbBrans.Text = dataGridView1.Rows[secilen].
+            Cells[3].Value.ToString();
+            CmbDoktor.Text = dataGridView1.Rows[secilen].
+            Cells[1].Value.ToString() + " " +
+             dataGridView1.Rows[secilen].
+            Cells[2].Value.ToString();
+\end{lstlisting}
+
+komutarýnda randevu id'yi Txtid'nin yazýsýna, randevu tarihi MskTarih'in yazýsýna, randevu saaati MskSaat'in yazýsýna, randevu branþý branþ combobox'ýn yazýsýna ve randevu doktorunun ad ve soyadýný arada boþluk býrakarak doktor combobox'ýnýn yazýsýna tabloda satýra tek týklatýnca aktardým.
+
+button2\_Click içinde;
+
+\begin{lstlisting}
+Application.Exit();
+\end{lstlisting}
+
+komutunda uygulamadan çýk dedim.
+
+button3\_Click içinde;
+
+\begin{lstlisting}
+FrmDoktorVeBranslar frd = new FrmDoktorVeBranslar();
+            frd.Show();
+\end{lstlisting}
+
+komutunda DoktorVeBranslar formunu açtým.
+
+button4\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komut = new SqlCommand("DELETE FROM 
+Tbl_Randevular WHERE Randevuid='" + Txtid.Text + "'", 
+bgl.baglanti());
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu silindi.", "Bilgi",
+             MessageBoxButtons.OK, 
+             MessageBoxIcon.Information);
+            TabloyuGuncelle();
+\end{lstlisting}
+
+komutunda sql komutu yazdým. Randevu sil butonunda yazdým. Sql komutunda Randevular tablosundan Randevuid'ye göre sql baðlantýsýný yaparak sildim ve komutu çalýþtýrdým. Sonra baðlantýyý kapatýp "Randevu silindi." þeklinde bilgi mesajý verdirdim. En son randevular tablosunu güncelledim.
+
+\textbf{Dosya 9:} Randevu Listesi Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmRandevuListesi : Form
+    {
+        public FrmRandevuListesi()
+        {
+            InitializeComponent();
+        }
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        private void FrmRandevuListesi_Load(object sender, 
+        EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Tbl_Randevular.Randevuid, Tbl_Hastalar.
+             HastaAd, Tbl_Hastalar.HastaSoyad, 
+             Tbl_Branslar.BransAd, Tbl_Doktorlar.
+             DoktorAd, Tbl_Doktorlar.DoktorSoyad,
+              Tbl_Randevular.RandevuTarih, Tbl_Randevular.
+              RandevuSaat, Tbl_Randevular.RandevuDurum,
+               Tbl_Randevular.Sikayet   FROM 
+               Tbl_Randevular, Tbl_Branslar, Tbl_Doktorlar,
+                Tbl_Hastalar WHERE Tbl_Randevular.Bransid =
+                 Tbl_Branslar.Bransid AND Tbl_Randevular.
+                 Doktorid = Tbl_Doktorlar.Doktorid AND
+                  Tbl_Randevular.Hastaid = 
+                  Tbl_Hastalar.Hastaid ", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        public int secilen;
+        private void dataGridView1_CellDoubleClick(object 
+        sender, DataGridViewCellEventArgs e)
+        {
+            secilen = dataGridView1.SelectedCells[0].
+            RowIndex;
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+ using System.Data.SqlClient;
+\end{lstlisting}
+
+komutuyla Sql komutlarýnýn çalýþmasý için SqlClient kütüphanesini ekledim.
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný yaptým.
+
+FrmRandevuListesi\_Load içinde;
+
+\begin{lstlisting}
+DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Tbl_Randevular.Randevuid, Tbl_Hastalar.
+             HastaAd, Tbl_Hastalar.HastaSoyad, 
+             Tbl_Branslar.BransAd, Tbl_Doktorlar.DoktorAd,
+              Tbl_Doktorlar.DoktorSoyad, Tbl_Randevular.
+              RandevuTarih, Tbl_Randevular.RandevuSaat,
+               Tbl_Randevular.RandevuDurum, 
+               Tbl_Randevular.Sikayet   FROM 
+               Tbl_Randevular, Tbl_Branslar, Tbl_Doktorlar,
+                Tbl_Hastalar WHERE Tbl_Randevular.Bransid =
+                 Tbl_Branslar.Bransid AND Tbl_Randevular.
+                 Doktorid = Tbl_Doktorlar.Doktorid AND
+                  Tbl_Randevular.Hastaid = 
+                  Tbl_Hastalar.Hastaid ", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+\end{lstlisting}
+
+dt isimli veri tablosu oluþturdum. da isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutta randevu id'si, hasta adý ve soyadý, branþ adý, doktor adý ve soyadý, randevu tarihi, randevu saati, randevu durumu ve þikayeti Randevular, Branþlar, Doktorlar ve Hastalar tablosundan gerekli sql baðlantýsýný yaparak çektim. da isimli sql veri uyarlayýcýya dt isimli veri tablosunu doldur dedim. Veri kafesi görünümü 1'in veri kaynaðýna dt isimli veri tablosunu aktardým.
+
+\begin{lstlisting}
+public int secilen;
+\end{lstlisting}
+
+komutunda seçileni diðer formlardan ve týklamalardan da eriþebilecek þekilde tamsayý olarak ayarladým.
+
+dataGridView1\_CellDoubleClick içinde;
+
+\begin{lstlisting}
+secilen = dataGridView1.SelectedCells[0].RowIndex;
+\end{lstlisting}
+
+komutunda seçilene veri kafesi görünümü 1'in seçili 0. hücresinin satýr indeksini aktardým. Bu komutla ayný zamanda form açýldýðýnda seçili satýrýn ilk hücrenin seçili olmasýný saðladým.
+
+\textbf{Dosya 10:} Doktor ve Branþlar Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmDoktorVeBranslar : Form
+    {
+        public FrmDoktorVeBranslar()
+        {
+            InitializeComponent();
+        }
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        private void DoktorVeBranslar_Load(object sender, 
+        EventArgs e)
+        {
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter da1 = new SqlDataAdapter("select
+             Doktorid,DoktorAd,DoktorSoyad,BransAd from 
+             Tbl_Doktorlar, Tbl_Branslar where
+              Tbl_Branslar.Bransid=Tbl_Doktorlar.Bransid",
+               bgl.baglanti());
+            da1.Fill(dt1);
+            dataGridView1.DataSource = dt1;
+
+            DataTable dt2 = new DataTable();
+            SqlDataAdapter da2 = new SqlDataAdapter("select
+             Bransid,BransAd from Tbl_Branslar", 
+             bgl.baglanti());
+            da2.Fill(dt2);
+            dataGridView2.DataSource = dt2;
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+ using System.Data.SqlClient;
+\end{lstlisting}
+
+komutuyla Sql komutlarýnýn çalýþmasý için SqlClient kütüphanesini ekledim.
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný yaptým.
+
+DoktorVeBranslar\_Load içinde;
+
+\begin{lstlisting}
+DataTable dt1 = new DataTable();
+            SqlDataAdapter da1 = new SqlDataAdapter("select
+             Doktorid,DoktorAd,DoktorSoyad,BransAd from 
+             Tbl_Doktorlar, Tbl_Branslar where
+              Tbl_Branslar.Bransid=Tbl_Doktorlar.Bransid",
+               bgl.baglanti());
+            da1.Fill(dt1);
+            dataGridView1.DataSource = dt1;
+\end{lstlisting}
+
+dt1 isimli veri tablosu oluþturdum. da1 isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutta doktor id'si, doktor ad'ý ve soyadý ve branþ adýný Doktorlar ve Branþlar tablosundan gerekli sql baðlantýsýný da yaparak çektim. da1 isimli sql veri uyarlayýcýya dt1 isimli veri tablosunu doldur dedim. Veri kafesi görünümü 1'in veri kaynaðýna dt1 isimli veri tablosunu aktar dedim.
+
+\begin{lstlisting}
+DataTable dt2 = new DataTable();
+            SqlDataAdapter da2 = new SqlDataAdapter("select
+             Bransid,BransAd from Tbl_Branslar", 
+             bgl.baglanti());
+            da2.Fill(dt2);
+            dataGridView2.DataSource = dt2;
+\end{lstlisting}
+
+dt2 isimli veri tablosu oluþturdum. da2 isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutta branþ id'sini ve branþ adýný Branþlar tablosundan gerekli sql baðlantýsýný da yaparak çektim. da2 isimli sql veri uyarlayýcýya dt2 isimli veri tablosunu doldur dedim. Veri kafesi görünümü 2'in veri kaynaðýna dt2 isimli veri tablosunu aktar dedim.
+
+\textbf{Dosya 11:} Müþteri Hizmetleri Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmMusteriHizmetleri : Form
+    {
+        public FrmMusteriHizmetleri()
+        {
+            InitializeComponent();
+        }
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        public string MusteriHizmetleriTC;
+        private void FrmMusteriHizmetleri_Load(object 
+        sender, EventArgs e)
+        {
+            SqlCommand komut2 = new SqlCommand("select 
+            BransAd from Tbl_Branslar", bgl.baglanti());
+            SqlDataReader dr2 = komut2.ExecuteReader();
+            while (dr2.Read())
+            {
+                CmbBrans.Items.Add(dr2[0]);
+            }
+            bgl.baglanti().Close();
+
+            lblMusteriHizmetleriTC.Text = 
+            MusteriHizmetleriTC;
+
+            //Musteri Hizmetleri AdSoyad Çekme
+            SqlCommand komut = new SqlCommand("select
+             MusteriHizmetleriAd, MusteriHizmetleriSoyad 
+             from Tbl_Musteri_Hizmetleri where 
+            MusteriHizmetleriTC=@p1", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", 
+            MusteriHizmetleriTC);
+            SqlDataReader dr1 = komut.ExecuteReader();
+            while (dr1.Read())
+            {
+                lblAdiSoyadi.Text = dr1[0].ToString() + " "
+                 + dr1[1].ToString();
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void TabloGuncelle()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Randevuid,RandevuTarih,RandevuSaat,Sikayet 
+             from Tbl_Randevular where Bransid IN (select 
+             Bransid FROM Tbl_Branslar WHERE BransAd LIKE 
+             '" + CmbBrans.Text + "') and Doktorid IN 
+             (select Doktorid FROM Tbl_Doktorlar WHERE 
+             DoktorAd + ' ' + DoktorSoyad LIKE '" + 
+             CmbDoktor.Text + "' and 
+             RandevuDurum='False') ", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView2.DataSource = dt;
+        }
+
+        private void CmbBrans_SelectedIndexChanged_1(object
+         sender, EventArgs e)
+        {
+            CmbDoktor.Items.Clear();
+            SqlCommand komut3 = new SqlCommand("SELECT
+             DoktorAd,DoktorSoyad FROM Tbl_Doktorlar WHERE
+              Bransid IN (select Bransid from tbl_Branslar 
+              where BransAd LIKE @p1)", bgl.baglanti());
+            komut3.Parameters.AddWithValue("@p1", 
+            CmbBrans.Text);
+            SqlDataReader dr3 = komut3.ExecuteReader();
+            while (dr3.Read())
+            {
+                CmbDoktor.Items.Add(dr3[0] + " " + dr3[1]);
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void CmbDoktor_SelectedIndexChanged(object 
+        sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Randevuid,RandevuTarih,RandevuSaat,Sikayet 
+             from Tbl_Randevular where Bransid IN (select 
+             Bransid FROM Tbl_Branslar WHERE BransAd LIKE 
+             '" + CmbBrans.Text + "') and Doktorid IN 
+             (select Doktorid FROM Tbl_Doktorlar WHERE 
+             DoktorAd + ' ' + DoktorSoyad LIKE '" + 
+             CmbDoktor.Text + "' and 
+             RandevuDurum='False') ", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView2.DataSource = dt;
+        }
+
+        private void BtnRandevuAl_Click(object sender, 
+        EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("UPDATE 
+            Tbl_Randevular SET RandevuDurum='True',Hastaid=
+            (SELECT Hastaid FROM Tbl_Hastalar WHERE HastaTC
+             ='"+ txtHastaTC.Text +"'),Sikayet=@r2 WHERE 
+             Randevuid='" + Txtid.Text + "' ", 
+             bgl.baglanti());
+            komut.Parameters.AddWithValue("@r2", 
+            RchSikayet.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu oluþturuldu.", 
+            "Bilgi", MessageBoxButtons.OK, 
+            MessageBoxIcon.Information);
+            TabloGuncelle();
+        }
+
+        private void dataGridView2_CellClick(object sender,
+         DataGridViewCellEventArgs e)
+        {
+            int secilen = dataGridView2.SelectedCells[0].
+            RowIndex;
+            Txtid.Text = dataGridView2.Rows[secilen].
+            Cells[0].Value.ToString(); 
+        }
+
+        private void btnRandevularýGetir_Click(object 
+        sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Randevuid,RandevuTarih,RandevuSaat,Sikayet 
+             from Tbl_Randevular where Hastaid=(SELECT 
+             Hastaid FROM Tbl_Hastalar WHERE HastaTC='"+ 
+             txtHastaTC.Text +"') ", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView2.DataSource = dt;
+        }
+
+        private void btnRandevuSil_Click(object sender, 
+        EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("UPDATE 
+            Tbl_Randevular SET RandevuDurum='False' 
+            where Randevuid=@p1", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", 
+            Txtid.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu Silindi.", "Bilgi",
+             MessageBoxButtons.OK, 
+             MessageBoxIcon.Information);
+            TabloGuncelle();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+ using System.Data.SqlClient;
+\end{lstlisting}
+
+komutuyla Sql komutlarýnýn çalýþmasý için SqlClient kütüphanesini ekledim.
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný yaptým.
+
+\begin{lstlisting}
+public string MusteriHizmetleriTC;
+\end{lstlisting}
+
+komutlarýnda Müþteri Hizmetlerinin sisteme giriþte girdiði TC'sini almak için diðer formlardan da ulaþýlabilecek þekilde MusteriHizmetleriTC'yi string biçiminde tanýmladým.
+
+FrmMusteriHizmetleri\_Load içinde;
+
+\begin{lstlisting}
+SqlCommand komut2 = new SqlCommand("select BransAd from 
+Tbl_Branslar", bgl.baglanti());
+            SqlDataReader dr2 = komut2.ExecuteReader();
+            while (dr2.Read())
+            {
+                CmbBrans.Items.Add(dr2[0]);
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+Sql komutta branþ adlarýný Branþlar tablosundan sql baðlantýsýný saðlayarak getir dedim. dr2 isimli sql veri okuyucuyu komutu okutarak çalýþtýrdým. Okurken branþ combobox'ýna ekledim ve baðlantýyý kapattým.
+
+\begin{lstlisting}
+lblMusteriHizmetleriTC.Text = MusteriHizmetleriTC;
+\end{lstlisting}
+
+komutunda MusteriHizmetleriTC'yi MusteriHizmetleriTC etiketiinin yazýsýna aktardým.
+
+\begin{lstlisting}
+//Musteri Hizmetleri AdSoyad Çekme
+            SqlCommand komut = new SqlCommand("select
+             MusteriHizmetleriAd, MusteriHizmetleriSoyad 
+             from Tbl_Musteri_Hizmetleri where 
+             MusteriHizmetleriTC=@p1", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", 
+            MusteriHizmetleriTC);
+            SqlDataReader dr1 = komut.ExecuteReader();
+            while (dr1.Read())
+            {
+                lblAdiSoyadi.Text = dr1[0].ToString() + " "
+                 + dr1[1].ToString();
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+Sql komutta müþteri hizmetleri adý ve müþteri hizmetleri soyadýný müþteri hizmetleri tablosundan MusteriHizmetleriTC'ye göre sql baðlantýsýný saðlayarak MusteriHizmetleriTC'yi parametre alýp getir dedim. dr1 isimli sql veri okuyucuyu komutu okutarak çalýþtýr dedim. Okurken müþteri hizmetleri adý ve müþteri hizmetleri soyadýný arada boþluk býrakarak formdaki ad soyad etiketine aktar dedim ve baðlantýyý kapattým.
+
+TabloGuncelle fonksiyonu içinde;
+
+\begin{lstlisting}
+DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Randevuid,RandevuTarih,RandevuSaat,Sikayet 
+             from Tbl_Randevular where Bransid IN (select 
+             Bransid FROM Tbl_Branslar WHERE BransAd LIKE 
+             '" + CmbBrans.Text + "') and Doktorid IN 
+             (select Doktorid FROM Tbl_Doktorlar WHERE 
+             DoktorAd + ' ' + DoktorSoyad LIKE '" + 
+             CmbDoktor.Text + "' and RandevuDurum='False') 
+             ", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView2.DataSource = dt;
+\end{lstlisting}
+
+dt isimli veri tablosunu oluþturdum. da isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutta randevu id'yi, randevu tarihi, randevu saati ve þikayeti Randevular tablosundan branþ combobox'ýn seçili olduðu branþ adýna ve doktor combobox'ýnýn seçili olduðu doktor ad ve soyadýna göre randevu durumu pasif yani alýnmamýþ randevularý sql baðlantýsýný saðlayarak getir dedim. da isimli sql veri uyarlayýcýya dt isimli veri tablosunu doldur dedim. Veri kafesi görünümü 2'nin veri kaynaðýna dt isimli veri tablosunu aktardým.
+
+CmbBrans\_SelectedIndexChanged\_1 içinde;
+
+\begin{lstlisting}
+CmbDoktor.Items.Clear();
+            SqlCommand komut3 = new SqlCommand("SELECT
+             DoktorAd,DoktorSoyad FROM Tbl_Doktorlar 
+             WHERE Bransid IN (select Bransid from 
+             tbl_Branslar where BransAd LIKE @p1)", 
+             bgl.baglanti());
+            komut3.Parameters.AddWithValue("@p1", 
+            CmbBrans.Text);
+            SqlDataReader dr3 = komut3.ExecuteReader();
+            while (dr3.Read())
+            {
+                CmbDoktor.Items.Add(dr3[0] + " " + dr3[1]);
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+komutlarýnda branþ combobox'ý seçildiðinde önce doktor combobox'ýný temizledim. Sql komutunda doktor adý ve soyadýný Doktorlar tablosundan branþ adýna göre branþ combobox'ýný parametre alýp sql baðlantýsýný saðlayarak getir dedim. dr3 isimli sql veri okuyucuyu komutu okutarak çalýþtýr dedim. Okurken doktor combobox'ýna tüm doktor ad ve soyadlarýný arada boþluk býrakarak ekledim ve sql baðlantýsýný kapattým.
+
+CmbDoktor\_SelectedIndexChanged içinde;
+
+\begin{lstlisting}
+DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Randevuid,RandevuTarih,RandevuSaat,Sikayet 
+             from Tbl_Randevular where Bransid IN (select 
+             Bransid FROM Tbl_Branslar WHERE BransAd LIKE 
+             '" + CmbBrans.Text + "') and Doktorid IN 
+             (select Doktorid FROM Tbl_Doktorlar WHERE 
+             DoktorAd + ' ' + DoktorSoyad LIKE '" + 
+             CmbDoktor.Text + "' and RandevuDurum='False') 
+             ", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView2.DataSource = dt;
+\end{lstlisting}
+
+dt isimli veri tablosunu oluþturdum. da isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutta randevu id'yi, randevu tarihi, randevu saati ve þikayeti Randevular tablosundan branþ combobox'ýn seçili olduðu branþ adýna ve doktor combobox'ýnýn seçili olduðu doktor ad ve soyadýna göre randevu durumu pasif yani alýnmamýþ randevularý sql baðlantýsýný saðlayarak getir dedim. da isimli sql veri uyarlayýcýya dt isimli veri tablosunu doldur dedim. Veri kafesi görünümü 2'nin veri kaynaðýna dt isimli veri tablosunu aktardým.
+
+BtnRandevuAl\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komut = new SqlCommand("UPDATE Tbl_Randevular 
+SET RandevuDurum='True',Hastaid=(SELECT Hastaid FROM 
+Tbl_Hastalar WHERE HastaTC ='"+ txtHastaTC.Text +"'),
+Sikayet=@r2 WHERE Randevuid='" + Txtid.Text + "' ", 
+bgl.baglanti());
+            komut.Parameters.AddWithValue("@r2", 
+            RchSikayet.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu oluþturuldu.", "Bilgi",
+             MessageBoxButtons.OK, 
+             MessageBoxIcon.Information);
+            TabloGuncelle();
+\end{lstlisting}
+
+Sql komutta Randevular tablosunda randevu durumu doðru olarak, hasta id'yi HastaTC'ye göre, þikayeti richtextbox'ý parametre alarak randevu id'ye göre sql baðlantýsýný yapýp güncelledim ve komutu çalýþtýrdým. Sonra sql baðlantýsýný kapatýp "Randevu oluþturuldu." þeklinde bilgi mesajý verdirdim. En son yaz... tablosunu güncelledim.
+
+dataGridView2\_CellClick içinde;
+
+\begin{lstlisting}
+int secilen = dataGridView2.SelectedCells[0].RowIndex;
+            Txtid.Text = dataGridView2.Rows[secilen].
+            Cells[0].Value.ToString(); 
+\end{lstlisting}
+
+komutta aktif veya pasif randevular tablosunda randevu id'yi tek týklayýnca ilgili yazý kutusuna aldým.
+
+btnRandevularýGetir\_Click içinde;
+
+\begin{lstlisting}
+DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select
+             Randevuid,RandevuTarih,RandevuSaat,Sikayet 
+             from Tbl_Randevular where Hastaid=(SELECT 
+             Hastaid FROM Tbl_Hastalar WHERE HastaTC='"+ 
+             txtHastaTC.Text +"') ", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView2.DataSource = dt;
+\end{lstlisting}
+
+dt isimli veri tablosunu oluþturdum. da isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutta randevu id'yi, randevu tarihi, randevu saati ve þikayeti Randevular tablosundan HastaTC'ye göre randevularý sql baðlantýsýný saðlayarak getir dedim. da isimli sql veri uyarlayýcýya dt isimli veri tablosunu doldur dedim. Veri kafesi görünümü 2'nin veri kaynaðýna dt isimli veri tablosunu aktardým.
+
+btnRandevuSil\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komut = new SqlCommand("UPDATE Tbl_Randevular 
+SET RandevuDurum='False', Hastaid=null WHERE Randevuid='" +
+ Txtid.Text + "' ", bgl.baglanti());
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Randevu iptal edildi.", 
+            "Bilgi", MessageBoxButtons.OK, 
+            MessageBoxIcon.Information);
+            TabloGuncelle();
+\end{lstlisting}
+
+Randevuyu iptal et butonunda randevular tablosundan randevu durumunu pasif ve tablolar id'lerle birbirine baðlý olduðundan Hastaid'sini null olarak Randevuid'ye göre sql baðlantýsýný saðlayarak güncelle dedim. Komutu çalýþtýrdým ve sql baðlantýsýný kapattým. "Randevu iptal edildi." þeklinde randevu iptal bilgi mesajý gösterdim ve aktif veya pasif randevular tablosunu güncelledim.
+
+button1\_Click içinde;
+
+\begin{lstlisting}
+Application.Exit();
+\end{lstlisting}
+
+komutunda uygulamadan çýk dedim.
+
+\textbf{Dosya 12:} Yönetici Detay Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmYoneticiDetay : Form
+    {
+        public FrmYoneticiDetay()
+        {
+            InitializeComponent();
+        }
+
+        public String YoneticiTC;
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        private void FrmYoneticiDetay_Load(object sender, 
+        EventArgs e)
+        {
+            LblTC.Text = YoneticiTC;
+            SqlCommand komut = new SqlCommand("select
+             YoneticiAd,YoneticiSoyad from Tbl_Yoneticiler 
+             where YoneticiTC=@p1", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", 
+            YoneticiTC);
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                LblAdSoyad.Text = dr[0] + " " + dr[1];
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void LnkBilgiDuzenle_LinkClicked(object 
+        sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmYoneticiBilgiDuzenle fr = new 
+            FrmYoneticiBilgiDuzenle();
+            fr.TCno = LblTC.Text;
+            fr.Show();
+        }
+
+        private void label1_Click(object sender, 
+        EventArgs e)
+        {
+
+        }
+
+        private void BtnDoktorPaneli_Click(object sender, 
+        EventArgs e)
+        {
+            FrmDoktorPaneli drp = new FrmDoktorPaneli();
+            drp.Show();
+        }
+
+        private void BtnBransPaneli_Click(object sender, 
+        EventArgs e)
+        {
+            FrmBransPaneli frb = new FrmBransPaneli();
+            frb.Show();
+        }
+
+        private void BtnRandevuListe_Click(object sender, 
+        EventArgs e)
+        {
+            FrmRandevuListesi rl = new FrmRandevuListesi();
+            rl.Show();
+        }
+
+        private void button1_Click(object sender, 
+        EventArgs e)
+        {
+            FrmDuyurular frd = new FrmDuyurular();
+            frd.Show();
+        }
+
+        private void linkYoneticiEkle_LinkClicked(object 
+        sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmYoneticiEkle fr = new FrmYoneticiEkle();
+            fr.Show();
+        }
+
+        private void linkSekreterEkle_LinkClicked(object 
+        sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmSekreterEkle fr = new FrmSekreterEkle();
+            fr.Show();
+        }
+
+        private void button2_Click(object sender, 
+        EventArgs e)
+        {
+            Application.Exit();
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+ using System.Data.SqlClient;
+\end{lstlisting}
+
+komutuyla Sql komutlarýnýn çalýþmasý için SqlClient kütüphanesini ekledim.
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný yaptým.
+
+\begin{lstlisting}
+public String YoneticiTC;
+\end{lstlisting}
+
+komutlarýnda yöneticinin sisteme giriþte girdiði TC'sini almak için diðer formlardan da ulaþýlabilecek þekilde YoneticiTC'sini string biçiminde tanýmladým.
+
+FrmYoneticiDetay\_Load içinde;
+
+\begin{lstlisting}
+LblTC.Text = YoneticiTC;
+            SqlCommand komut = new SqlCommand("select
+             YoneticiAd,YoneticiSoyad from Tbl_Yoneticiler 
+             where YoneticiTC=@p1", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", 
+            YoneticiTC);
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                LblAdSoyad.Text = dr[0] + " " + dr[1];
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+komutlarýnda YoneticiTC'yi LblTC'nin yazýsýna aktardým. Sql komutta yönetici ad ve soyadý Yöneticiler tablosundan YoneticiTC'ye göre YoneticiTC'yi parametre alarak sql baðlantýsýný saðlayarak getir dedim. Sql veri okuyucuyu komutu okutarak çalýþtýr dedim. Okurken ad ve soyadý arada boþluk býrakarak ilgili etikete yaz dedim ve baðlantýyý kapattým.
+
+LnkBilgiDuzenle\_LinkClicked içinde;
+
+\begin{lstlisting}
+FrmYoneticiBilgiDuzenle fr = new FrmYoneticiBilgiDuzenle();
+            fr.TCno = LblTC.Text;
+            fr.Show();
+\end{lstlisting}
+
+komutlarýnda FrmYoneticiBilgiDuzenle'nin TCno'suna ilgili etiketteki yönetici TC'yi aktardým ve FrmYoneticiBilgiDuzenle formunu açtým.
+
+BtnDoktorPaneli\_Click içinde;
+
+\begin{lstlisting}
+FrmDoktorPaneli drp = new FrmDoktorPaneli();
+            drp.Show();
+\end{lstlisting}
+
+komutunda FrmDoktorPaneli formunu açtým.
+
+BtnBransPaneli\_Click içinde;
+
+\begin{lstlisting}
+FrmBransPaneli frb = new FrmBransPaneli();
+            frb.Show();
+\end{lstlisting}
+
+komutunda FrmBransPaneli formunu açtým.
+
+BtnRandevuListe\_Click içinde;
+
+\begin{lstlisting}
+FrmRandevuListesi rl = new FrmRandevuListesi();
+            rl.Show();
+\end{lstlisting}
+
+komutunda FrmRandevuListesi formunu açtým.
+
+button1\_Click içine;
+
+\begin{lstlisting}
+FrmDuyurular frd = new FrmDuyurular();
+            frd.Show();
+\end{lstlisting}
+
+komutunda FrmDuyurular formunu açtým.
+
+linkYoneticiEkle\_LinkClicked içinde;
+
+\begin{lstlisting}
+FrmYoneticiEkle fr = new FrmYoneticiEkle();
+            fr.Show();
+\end{lstlisting}
+
+komutunda FrmYoneticiEkle formunu açtým.
+
+linkSekreterEkle\_LinkClicked içinde;
+
+\begin{lstlisting}
+FrmSekreterEkle fr = new FrmSekreterEkle();
+            fr.Show();
+\end{lstlisting}
+
+komutunda FrmSekreterEkle formunu açtým.
+
+button2\_Click içinde;
+
+\begin{lstlisting}
+Application.Exit();
+\end{lstlisting}
+
+komutunda uygulamadan çýk dedim.
+
+\textbf{Dosya 13:} Yönetici Bilgi Düzenle Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmYoneticiBilgiDuzenle : Form
+    {
+        public FrmYoneticiBilgiDuzenle()
+        {
+            InitializeComponent();
+        }
+        public string TCno;
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        private void BtnBilgiGuncelle_Click(object sender, 
+        EventArgs e)
+        {
+            if (FrmHastaKayit.TCKontrol(MskTC.Text)) {
+                SqlCommand komut2 = new SqlCommand("update
+                 Tbl_Yoneticiler set YoneticiAd=@p1, 
+                 YoneticiSoyad=@p2, YoneticiSifre=@p3 where
+                  YoneticiTC=@p4", bgl.baglanti());
+                komut2.Parameters.AddWithValue("@p1", 
+                TxtAd.Text);
+                komut2.Parameters.AddWithValue("@p2", 
+                TxtSoyad.Text);
+                komut2.Parameters.AddWithValue("@p3", 
+                TxtSifre.Text);
+                komut2.Parameters.AddWithValue("@p4", 
+                MskTC.Text);
+                komut2.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Bilgileriniz güncellendi."
+                , "Bilgi", MessageBoxButtons.OK,
+                 MessageBoxIcon.Information);
+            }
+        }
+
+        private void FrmYoneticiBilgiDuzenle_Load(object 
+        sender, EventArgs e)
+        {
+            MskTC.Text = TCno;
+            SqlCommand komut = new SqlCommand("select * 
+            from Tbl_Yoneticiler where YoneticiTC=@p1", 
+            bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", TCno);
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                TxtAd.Text = dr[2].ToString();
+                TxtSoyad.Text = dr[3].ToString();
+                TxtSifre.Text = dr[4].ToString();
+            }
+            bgl.baglanti().Close();
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+ using System.Data.SqlClient;
+\end{lstlisting}
+
+komutuyla Sql komutlarýnýn çalýþmasý için SqlClient kütüphanesini ekledim.
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný yaptým.
+
+\begin{lstlisting}
+public string TCno;
+\end{lstlisting}
+
+komutlarýnda yöneticinin sisteme giriþte girdiði TC'sini almak için diðer formlardan da ulaþýlabilecek þekilde TCno'sunu string biçiminde tanýmladým.
+
+BtnBilgiGuncelle\_Click içinde;
+
+\begin{lstlisting}
+if (FrmHastaKayit.TCKontrol(MskTC.Text)) {
+                SqlCommand komut2 = new SqlCommand("update
+                 Tbl_Yoneticiler set YoneticiAd=@p1, 
+                 YoneticiSoyad=@p2, YoneticiSifre=@p3 where
+                  YoneticiTC=@p4", bgl.baglanti());
+                komut2.Parameters.AddWithValue("@p1", 
+                TxtAd.Text);
+                komut2.Parameters.AddWithValue("@p2", 
+                TxtSoyad.Text);
+                komut2.Parameters.AddWithValue("@p3", 
+                TxtSifre.Text);
+                komut2.Parameters.AddWithValue("@p4", 
+                MskTC.Text);
+                komut2.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Bilgileriniz güncellendi."
+                , "Bilgi", MessageBoxButtons.OK,
+                 MessageBoxIcon.Information);
+            }
+\end{lstlisting}
+
+komutlarýnda TC kontrolü yapýldýktan sonra sql komutta Yöneticiler tablosunda yönetici adý ve soyadý, yönetici þifreyi ve yönetici TC'sini YoneticiTC'ye göre sql baðlantýsýný saðlayarak ve TxtAd'ýn yazýsýný, TxtSoyad'ýn yazýsýný, TxtSifre'nin yazýsýný ve MskTC'nin yazýsýný parametre alarak güncelledim. Komutu çalýþtýrdým ve baðlantýyý kapattým.  Sonra "Bilgileriniz güncellendi." þeklinde bilgi mesajý verdirdim.
+
+FrmYoneticiBilgiDuzenle\_Load içinde;
+
+\begin{lstlisting}
+MskTC.Text = TCno;
+            SqlCommand komut = new SqlCommand("select * 
+            from Tbl_Yoneticiler where YoneticiTC=@p1", 
+            bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", TCno);
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                TxtAd.Text = dr[2].ToString();
+                TxtSoyad.Text = dr[3].ToString();
+                TxtSifre.Text = dr[4].ToString();
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+komutlarýnda TCno'yu MskTC'nin yazýsýna aktardým. Sql komutta Yöneticiler tablosundan YoneticiTC'ye göre TCno'yu parametre alarak ve sql baðlantýsýný saðlayarak getir verileri dedim. Sql veri okuyucuyu komutu okutarak çalýþtýr dedim. Okurken adý TxtAd'nin yazýsýna, soyadý TxtSoyad'nin yazýsýna ve þifreyi TxtSifre'nin yazýsýna aktardým ve baðlantýyý kapattým.
+
+\textbf{Dosya 14:} Yönetici Ekle Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmYoneticiEkle : Form
+    {
+        public FrmYoneticiEkle()
+        {
+            InitializeComponent();
+        }
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+        private void BtnYoneticiEkle_Click(object sender, 
+        EventArgs e)
+        {
+            if (FrmHastaKayit.TCKontrol(MskTC.Text)) {
+                SqlCommand komut2 = new SqlCommand("insert 
+                into
+                 Tbl_Yoneticiler(YoneticiTC,YoneticiAd,
+                 YoneticiSoyad,YoneticiSifre) values 
+                 (@p1, @p2, @p3, @p4)", bgl.baglanti());
+                komut2.Parameters.AddWithValue("@p2", 
+                TxtAd.Text);
+                komut2.Parameters.AddWithValue("@p3", 
+                TxtSoyad.Text);
+                komut2.Parameters.AddWithValue("@p4", 
+                TxtSifre.Text);
+                komut2.Parameters.AddWithValue("@p1", 
+                MskTC.Text);
+                komut2.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Yönetici Eklendi", 
+                "Bilgi", MessageBoxButtons.OK,
+                 MessageBoxIcon.Information);
+                TabloGuncelle();
+            }
+        }
+
+        private void TabloGuncelle()
+        {
+            DataTable dt2 = new DataTable();
+            SqlDataAdapter da2 = new SqlDataAdapter("select
+             Yoneticiid,YoneticiAd,YoneticiSoyad,YoneticiTC
+             ,YoneticiSifre from Tbl_Yoneticiler", 
+             bgl.baglanti());
+            da2.Fill(dt2);
+            dataGridView1.DataSource = dt2;
+        }
+
+        private void dataGridView1_CellClick(object sender,
+         DataGridViewCellEventArgs e)
+        {
+            int secilen = dataGridView1.SelectedCells[0].
+            RowIndex;
+            TxtYoneticiid.Text = dataGridView1.
+            Rows[secilen].Cells[0].Value.ToString();
+            TxtAd.Text = dataGridView1.Rows[secilen].
+            Cells[1].Value.ToString();
+            TxtSoyad.Text = dataGridView1.Rows[secilen].
+            Cells[2].Value.ToString();
+            MskTC.Text = dataGridView1.Rows[secilen].
+            Cells[3].Value.ToString();
+            TxtSifre.Text = dataGridView1.Rows[secilen].
+            Cells[4].Value.ToString();
+        }
+
+        private void btnYoneticiSil_Click(object sender, 
+        EventArgs e)
+        {
+            SqlCommand komut2 = new SqlCommand("delete from
+             Tbl_Yoneticiler where Yoneticiid=@p1", 
+             bgl.baglanti());
+            komut2.Parameters.AddWithValue("@p1", 
+            TxtYoneticiid.Text);
+            komut2.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Yönetici Silindi.", "Bilgi",
+             MessageBoxButtons.OK, 
+             MessageBoxIcon.Information);
+            TabloGuncelle();
+        }
+
+        private void FrmYoneticiEkle_Load(object sender, 
+        EventArgs e)
+        {
+            DataTable dt2 = new DataTable();
+            SqlDataAdapter da2 = new SqlDataAdapter("select
+             Yoneticiid,YoneticiAd,YoneticiSoyad,YoneticiTC
+             ,YoneticiSifre from Tbl_Yoneticiler", 
+             bgl.baglanti());
+            da2.Fill(dt2);
+            dataGridView1.DataSource = dt2;
+        }
+
+        private void button1_Click(object sender, 
+        EventArgs e)
+        {
+            SqlCommand komut2 = new SqlCommand("update 
+            Tbl_Yoneticiler set YoneticiAd=@p1, 
+            YoneticiSoyad=@p2, YoneticiTC=@p3, 
+            YoneticiSifre=@p4 where Yoneticiid=@p5", 
+            bgl.baglanti());
+            komut2.Parameters.AddWithValue("@p1", 
+            TxtAd.Text);
+            komut2.Parameters.AddWithValue("@p2", 
+            TxtSoyad.Text);
+            komut2.Parameters.AddWithValue("@p3", 
+            MskTC.Text);
+            komut2.Parameters.AddWithValue("@p4", 
+            TxtSifre.Text);
+            komut2.Parameters.AddWithValue("@p5", 
+            TxtYoneticiid.Text);
+
+            komut2.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Yönetici Güncellendi.", "Bilgi",
+             MessageBoxButtons.OK, 
+             MessageBoxIcon.Information);
+            TabloGuncelle();
+           
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+ using System.Data.SqlClient;
+\end{lstlisting}
+
+komutuyla Sql komutlarýnýn çalýþmasý için SqlClient kütüphanesini ekledim.
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný yaptým.
+
+TabloGuncelle fonksiyonu içinde;
+
+\begin{lstlisting}
+DataTable dt2 = new DataTable();
+            SqlDataAdapter da2 = new SqlDataAdapter("select
+             Yoneticiid,YoneticiAd,YoneticiSoyad,YoneticiTC
+             ,YoneticiSifre from Tbl_Yoneticiler", 
+             bgl.baglanti());
+            da2.Fill(dt2);
+            dataGridView1.DataSource = dt2;
+\end{lstlisting}
+
+komutlarýnda dt2 isimli veri tablosu oluþturdum. da2 isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutta yönetici id, yönetici ad ve soyad, Yönetici TC ve yönetici þifreyi Yöneticiler tablosundan sql baðlantýsýný saðlayarak getir dedim. da2 isimli sql veri uyarlayýcýya dt2 isimli veri tablosunu doldur dedim. Veri kafesi görünümü 1'in veri kaynaðýna dt2 isimli veri tablosunu aktardým.
+
+BtnYoneticiEkle\_Click içinde;
+
+\begin{lstlisting}
+if (FrmHastaKayit.TCKontrol(MskTC.Text)) {
+                SqlCommand komut2 = new SqlCommand("insert 
+                into
+                 Tbl_Yoneticiler(YoneticiTC,YoneticiAd,
+                 YoneticiSoyad,YoneticiSifre) values 
+                 (@p1, @p2, @p3, @p4)", bgl.baglanti());
+                komut2.Parameters.AddWithValue("@p2", 
+                TxtAd.Text);
+                komut2.Parameters.AddWithValue("@p3", 
+                TxtSoyad.Text);
+                komut2.Parameters.AddWithValue("@p4", 
+                TxtSifre.Text);
+                komut2.Parameters.AddWithValue("@p1", 
+                MskTC.Text);
+                komut2.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Yönetici Eklendi", 
+                "Bilgi", MessageBoxButtons.OK,
+                 MessageBoxIcon.Information);
+                TabloGuncelle();
+            }
+\end{lstlisting}
+
+komutlarýnda TC kontrolü yapýp sql komutu yazdým. Sql komutta Yöneticiler tablosuna yönetici TC'yi yönetici adý, yönetici soyadý ve yönetici þifreyi TxtAd'nin yazýsýný, TxtSoyad'nin yazýsýný, TxtSifre'nin yazýsýný ve MskTC'nin yazýsýný parametre alarak sql baðlantýsýný yapýp ekle dedim. Komutu çalýþtýrdým ve baðlantýyý kapattým. Sonra "Yönetici Eklendi" þeklinde bilgi mesajý verip yönetici tablosunu güncelledim.
+
+dataGridView1\_CellClick içinde;
+
+\begin{lstlisting}
+int secilen = dataGridView1.SelectedCells[0].RowIndex;
+            TxtYoneticiid.Text = dataGridView1.
+            Rows[secilen].Cells[0].Value.ToString();
+            TxtAd.Text = dataGridView1.Rows[secilen].
+            Cells[1].Value.ToString();
+            TxtSoyad.Text = dataGridView1.Rows[secilen].
+            Cells[2].Value.ToString();
+            MskTC.Text = dataGridView1.Rows[secilen].
+            Cells[3].Value.ToString();
+            TxtSifre.Text = dataGridView1.Rows[secilen].
+            Cells[4].Value.ToString();
+\end{lstlisting}
+
+komutlarýnda yönetici id'yi TxtYoneticiid'nin yazýsýna, yönetici adý TxtAd'nin yazýsýna, yönetici soyadý TxtSoyad'nin yazýsýna, yönetici TC'yi MskTC'nin yazýsýna ve yönetici þifreyi TxtSifre'nin yazýsýna yönetici tablosunda bir kez týklanýlan satýrýn satýr indeksini seçilen deðiþkenine alarak aktardým.
+
+btnYoneticiSil\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komut2 = new SqlCommand("delete from 
+Tbl_Yoneticiler where Yoneticiid=@p1", bgl.baglanti());
+            komut2.Parameters.AddWithValue("@p1", 
+            TxtYoneticiid.Text);
+            komut2.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Yönetici Silindi.", "Bilgi",
+             MessageBoxButtons.OK, 
+             MessageBoxIcon.Information);
+            TabloGuncelle();
+\end{lstlisting}
+
+komutlarýnda Yöneticiler tablosundan Yoneticiid'ye göre TxtYoneticiid'nin yazýsýný parametre alarak ve sql baðlantýsýný saðlayarak sil dedim. Komutu çalýþtýrdým ve baðlantýyý kapattým. Sonra "Yönetici Silindi." þeklinde bilgi mesajý verdirdim ve yönetici tablosunu güncelledim.
+
+FrmYoneticiEkle\_Load içinde;
+
+\begin{lstlisting}
+DataTable dt2 = new DataTable();
+            SqlDataAdapter da2 = new SqlDataAdapter("select
+             Yoneticiid,YoneticiAd,YoneticiSoyad,YoneticiTC
+             ,YoneticiSifre from Tbl_Yoneticiler", 
+             bgl.baglanti());
+            da2.Fill(dt2);
+            dataGridView1.DataSource = dt2;
+\end{lstlisting}
+
+komutlarýnda dt2 isimli veri tablosu oluþturdum. da2 isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutta yönetici id'yi, yönetici adý ve soyadý, Yönetici TC'yi ve yönetici þifreyi Yöneticiler tablosundan sql baðlantýsýný saðlayarak getir dedim. da2 isimli sql veri uyarlayýcýya dt2 isimli veri tablosunu doldur dedim. Veri kafesi görünümü 1'in veri kaynaðýna dt2 isimli veri tablosunu aktardým.
+
+button1\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komut2 = new SqlCommand("update Tbl_Yoneticiler 
+set YoneticiAd=@p1, YoneticiSoyad=@p2, YoneticiTC=@p3, 
+YoneticiSifre=@p4 where Yoneticiid=@p5", bgl.baglanti());
+            komut2.Parameters.AddWithValue("@p1", 
+            TxtAd.Text);
+            komut2.Parameters.AddWithValue("@p2", 
+            TxtSoyad.Text);
+            komut2.Parameters.AddWithValue("@p3", 
+            MskTC.Text);
+            komut2.Parameters.AddWithValue("@p4", 
+            TxtSifre.Text);
+            komut2.Parameters.AddWithValue("@p5", 
+            TxtYoneticiid.Text);
+
+            komut2.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Yönetici Güncellendi.", 
+            "Bilgi", MessageBoxButtons.OK, 
+            MessageBoxIcon.Information);
+            TabloGuncelle();
+\end{lstlisting}
+
+komutlarýnda sql komut yazdým. Sql komutta Yöneticiler tablosunda yönetici adý ve soyadý, yönetici TC'yi ve yönetici þifreyi Yoneticiid'ye göre TxtAd'nin yazýsýný, TxtSoyad'nin yazýsýný, MskTC'nin yazýsýný, TxtSifre'nin yazýsýný ve TxtYoneticiid'nin yazýsýný parametre alarak ve sql baðlantýsýný yaparak güncelle dedim. Komutu çalýþtýrdým ve sql baðlantýsýný kapattým. Sonra "Yönetici Güncellendi." þeklinde bilgi mesajý verdirdim ve yönetici tablosunu güncelledim.
+
+\textbf{Dosya 15:} Doktor Paneli Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmDoktorPaneli : Form
+    {
+        public FrmDoktorPaneli()
+        {
+            InitializeComponent();
+        }
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        private void FrmDoktorPaneli_Load(object sender, 
+        EventArgs e)
+        {
+            //Doktorlarý Datagridview2'e aktarma
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter da1 = new SqlDataAdapter("select
+             Tbl_Doktorlar.Doktorid, Tbl_Doktorlar.DoktorAd
+             , Tbl_Doktorlar.DoktorSoyad, Tbl_Branslar.
+             BransAd, Tbl_Doktorlar.DoktorTC, Tbl_Doktorlar
+             .DoktorSifre from Tbl_Doktorlar, Tbl_Branslar 
+             WHERE Tbl_Doktorlar.Bransid = Tbl_Branslar.
+             Bransid", bgl.baglanti());
+            da1.Fill(dt1);
+            dataGridView1.DataSource = dt1;
+
+            //Branþlarý Combobox'a aktarma
+            SqlCommand komut1 = new SqlCommand("select 
+            BransAd from Tbl_Branslar", bgl.baglanti());
+            SqlDataReader dr1 = komut1.ExecuteReader();
+            while (dr1.Read())
+            {
+                CmbBrans.Items.Add(dr1[0]);
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void TabloGuncelle()
+        {
+            //Tablo güncelleme
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter da1 = new SqlDataAdapter("select
+             Tbl_Doktorlar.Doktorid, Tbl_Doktorlar.DoktorAd
+             , Tbl_Doktorlar.DoktorSoyad, Tbl_Branslar.
+             BransAd, Tbl_Doktorlar.DoktorTC, Tbl_Doktorlar
+             .DoktorSifre from Tbl_Doktorlar, Tbl_Branslar 
+             WHERE Tbl_Doktorlar.Bransid = Tbl_Branslar.
+             Bransid", bgl.baglanti());
+            da1.Fill(dt1);
+            dataGridView1.DataSource = dt1;
+        }
+
+        private void BtnEkle_Click(object sender, 
+        EventArgs e)
+        {
+            if (FrmHastaKayit.TCKontrol(MskTC.Text)) {
+                SqlCommand komut = new SqlCommand("insert 
+                into
+                 Tbl_Doktorlar(DoktorAd,DoktorSoyad,Bransid
+                 ,DoktorTC,DoktorSifre) values(@d1,@d2,
+                 (SELECT Bransid FROM Tbl_Branslar WHERE 
+                 BransAd='" + CmbBrans.Text + "'),
+                 @d4,@d5)", bgl.baglanti());
+                komut.Parameters.AddWithValue("@d1", 
+                TxtAd.Text);
+                komut.Parameters.AddWithValue("@d2", 
+                TxtSoyad.Text);
+                komut.Parameters.AddWithValue("@d4", 
+                MskTC.Text);
+                komut.Parameters.AddWithValue("@d5", 
+                TxtSifre.Text);
+                komut.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Doktor eklendi.", "Bilgi",
+                 MessageBoxButtons.OK, 
+                 MessageBoxIcon.Information);
+                TabloGuncelle();
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender,
+         DataGridViewCellEventArgs e)
+        {
+            int secilen = dataGridView1.SelectedCells[0].
+            RowIndex;
+            TxtDoktorid.Text = dataGridView1.Rows[secilen].
+            Cells[0].Value.ToString();
+            TxtAd.Text = dataGridView1.Rows[secilen].
+            Cells[1].Value.ToString();
+            TxtSoyad.Text = dataGridView1.Rows[secilen].
+            Cells[2].Value.ToString();
+            CmbBrans.Text = dataGridView1.Rows[secilen].
+            Cells[3].Value.ToString();
+            MskTC.Text = dataGridView1.Rows[secilen].
+            Cells[4].Value.ToString();
+            TxtSifre.Text = dataGridView1.Rows[secilen].
+            Cells[5].Value.ToString();
+        }
+
+        private void BtnSil_Click(object sender, 
+        EventArgs e)
+        {
+            SqlCommand komut2 = new SqlCommand("DELETE FROM
+             Tbl_Randevular WHERE Doktorid='" + 
+             TxtDoktorid.Text + "'", bgl.baglanti());
+            komut2.ExecuteNonQuery();
+            bgl.baglanti().Close();
+
+            SqlCommand komut = new SqlCommand("DELETE FROM 
+            Tbl_Doktorlar WHERE Doktorid='"+ 
+            TxtDoktorid.Text + "'", bgl.baglanti());
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Doktor kaydý silindi.",
+            "Bilgi",MessageBoxButtons.OK,
+            MessageBoxIcon.Asterisk);
+            TabloGuncelle();
+        }
+
+        private void BtnGuncelle_Click(object sender, 
+        EventArgs e)
+        {
+            if (FrmHastaKayit.TCKontrol(MskTC.Text))
+            {
+                SqlCommand komut = new SqlCommand("update 
+                Tbl_Doktorlar set DoktorAd=@d2, 
+                DoktorSoyad=@d3, Bransid=(SELECT Bransid 
+                FROM Tbl_Branslar WHERE BransAd=@d4), 
+                DoktorTC=@d5, DoktorSifre=@d6 where 
+                Doktorid=@d1", bgl.baglanti());
+                komut.Parameters.AddWithValue("@d1", 
+                TxtDoktorid.Text);
+                komut.Parameters.AddWithValue("@d2", 
+                TxtAd.Text);
+                komut.Parameters.AddWithValue("@d3", 
+                TxtSoyad.Text);
+                komut.Parameters.AddWithValue("@d4", 
+                CmbBrans.Text);
+                komut.Parameters.AddWithValue("@d5", 
+                MskTC.Text);
+                komut.Parameters.AddWithValue("@d6", 
+                TxtSifre.Text);
+
+                komut.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Doktor bilgisi 
+                güncellendi.", "Bilgi", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Information);
+
+                TabloGuncelle();
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+ using System.Data.SqlClient;
+\end{lstlisting}
+
+komutuyla Sql komutlarýnýn çalýþmasý için SqlClient kütüphanesini ekledim.
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný yaptým.
+
+FrmDoktorPaneli\_Load içinde;
+
+\begin{lstlisting}
+//Doktorlarý Datagridview1'e aktarma
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter da1 = new SqlDataAdapter("select
+             Tbl_Doktorlar.Doktorid, Tbl_Doktorlar.DoktorAd
+             , Tbl_Doktorlar.DoktorSoyad, Tbl_Branslar.
+              BransAd, Tbl_Doktorlar.DoktorTC, 
+              Tbl_Doktorlar.DoktorSifre from Tbl_Doktorlar,
+               Tbl_Branslar WHERE Tbl_Doktorlar.Bransid =
+                Tbl_Branslar.Bransid", bgl.baglanti());
+            da1.Fill(dt1);
+            dataGridView1.DataSource = dt1;
+\end{lstlisting}
+
+komutlarýnda dt1 isimli veri tablosu oluþturdum. da1 isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutta doktor id'yi, doktor adý ve soyadý, branþ adý, doktor TC'yi ve doktor þifreyi Doktorlar ve Branþlar tablosundan sql baðlantýsýný saðlayarak getir dedim. da1 isimli sql veri uyarlayýcýya dt1 isimli veri tablosunu doldur dedim. Veri kafesi görünümü 1'in veri kaynaðýna dt1 isimli veri tablosunu aktardým.
+
+\begin{lstlisting}
+//Branþlarý Combobox'a aktarma
+            SqlCommand komut1 = new SqlCommand("select 
+            BransAd from Tbl_Branslar", bgl.baglanti());
+            SqlDataReader dr1 = komut1.ExecuteReader();
+            while (dr1.Read())
+            {
+                CmbBrans.Items.Add(dr1[0]);
+            }
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+komutlarýnda branþ adý Branþlar tablosundan sql baðlantýsýný saðlayarak getir dedim. Sql veri okuyucuyu komutu da okutarak çalýþtýr dedim. Okurken branþlarý branþ combobox'ýna ekledim ve baðlantýyý kapattým.
+
+TabloGuncelle fonksiyonu içinde;
+
+\begin{lstlisting}
+//Tablo güncelleme
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter da1 = new SqlDataAdapter("select
+             Tbl_Doktorlar.Doktorid, Tbl_Doktorlar.DoktorAd
+             , Tbl_Doktorlar.DoktorSoyad, Tbl_Branslar.
+             BransAd, Tbl_Doktorlar.DoktorTC, Tbl_Doktorlar
+             .DoktorSifre from Tbl_Doktorlar, Tbl_Branslar 
+             WHERE Tbl_Doktorlar.Bransid = Tbl_Branslar.
+             Bransid", bgl.baglanti());
+            da1.Fill(dt1);
+            dataGridView1.DataSource = dt1;
+\end{lstlisting}
+
+komutlarýnda dt1 isimli veri tablosu oluþturdum. da1 isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutta doktor id'yi, doktor adý ve soyadý, branþ adý, doktor TC'yi ve doktor þifreyi Doktorlar ve Branþlar tablosundan sql baðlantýsýný saðlayarak getir dedim. da1 isimli sql veri uyarlayýcýya dt1 isimli veri tablosunu doldur dedim. Veri kafesi görünümü 1'in veri kaynaðýna dt1 isimli veri tablosunu aktardým.
+
+BtnEkle\_Click içinde;
+
+\begin{lstlisting}
+if (FrmHastaKayit.TCKontrol(MskTC.Text)) {
+                SqlCommand komut = new SqlCommand("insert 
+                into
+                 Tbl_Doktorlar(DoktorAd,DoktorSoyad,Bransid
+                 ,DoktorTC,DoktorSifre) values(@d1,@d2,
+                 (SELECT Bransid FROM Tbl_Branslar WHERE 
+                 BransAd='" + CmbBrans.Text + "'),
+                 @d4,@d5)", bgl.baglanti());
+                komut.Parameters.AddWithValue("@d1", 
+                TxtAd.Text);
+                komut.Parameters.AddWithValue("@d2", 
+                TxtSoyad.Text);
+                komut.Parameters.AddWithValue("@d4", 
+                MskTC.Text);
+                komut.Parameters.AddWithValue("@d5", 
+                TxtSifre.Text);
+                komut.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Doktor eklendi.", "Bilgi",
+                 MessageBoxButtons.OK, 
+                 MessageBoxIcon.Information);
+                TabloGuncelle();
+            }
+\end{lstlisting}
+
+komutlarýnda TC kontrolü yapýp sql komutu yazdým. Sql komutta Doktorlar tablosuna doktor adý, doktor soyadý, branþ id'yi branþ ada göre, doktor TC'yi ve doktor þifreyi TxtAd'nin yazýsýný, TxtSoyad'nin yazýsýný, MskTC'nin yazýsýný ve TxtSifre'nin yazýsýný parametre alarak sql baðlantýsýný yapýp ekle dedim. Komutu çalýþtýrdým ve baðlantýyý kapattým. Sonra "Doktor Eklendi" þeklinde bilgi mesajý verip doktor tablosunu güncelledim.
+
+dataGridView1\_CellClick içinde;
+
+\begin{lstlisting}
+int secilen = dataGridView1.SelectedCells[0].RowIndex;
+            TxtDoktorid.Text = dataGridView1.Rows[secilen].
+            Cells[0].Value.ToString();
+            TxtAd.Text = dataGridView1.Rows[secilen].
+            Cells[1].Value.ToString();
+            TxtSoyad.Text = dataGridView1.Rows[secilen].
+            Cells[2].Value.ToString();
+            CmbBrans.Text = dataGridView1.Rows[secilen].
+            Cells[3].Value.ToString();
+            MskTC.Text = dataGridView1.Rows[secilen].
+            Cells[4].Value.ToString();
+            TxtSifre.Text = dataGridView1.Rows[secilen].
+            Cells[5].Value.ToString();
+\end{lstlisting}
+
+komutlarýnda doktor id'yi TxtDoktorid'nin yazýsýna, doktor adý TxtAd'nin yazýsýna, doktor soyadý TxtSoyad'nin yazýsýna, doktor branþýnýn adý CmbBrans'nin yazýsýna, doktor TC'yi MskTC'nin yazýsýna ve doktor þifreyi TxtSifre'nin yazýsýna doktor tablosunda bir kez týklanýlan satýrýn satýr indeksini seçilen deðiþkenine alarak aktardým.
+
+BtnSil\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komut2 = new SqlCommand("DELETE FROM 
+Tbl_Randevular WHERE Doktorid='" + 
+TxtDoktorid.Text + "'", bgl.baglanti());
+            komut2.ExecuteNonQuery();
+            bgl.baglanti().Close();
+\end{lstlisting}
+
+komutunda Randevular tablosundan Doktorid'ye göre sql baðlantýsýný saðlayarak sildim ve komutu çalýþtýrdým. Sonra baðlantýyý kapattým. Doktoru olmayan doktorun randevusu olmamasý için randevularýyla birlikte silmeliyim.
+
+\begin{lstlisting}
+SqlCommand komut = new SqlCommand("DELETE FROM 
+Tbl_Doktorlar WHERE Doktorid='"+ TxtDoktorid.Text + "'", 
+bgl.baglanti());
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Doktor kaydý silindi.",
+            "Bilgi",MessageBoxButtons.OK,
+            MessageBoxIcon.Asterisk);
+            TabloGuncelle();
+\end{lstlisting}
+
+komutlarýnda Doktorlar tablosundan Doktorid'ye göre sql baðlantýsýný saðlayarak sildim ve komutu çalýþtýrdým. Sql baðlantýsýný kapattým ve "Doktor kaydý silindi." þeklinde bilgi mesajý verdirdim. Sonra doktor tablosunu güncelledim.
+
+BtnGuncelle\_Click içinde;
+
+\begin{lstlisting}
+if (FrmHastaKayit.TCKontrol(MskTC.Text))
+            {
+                SqlCommand komut = new SqlCommand("update 
+                Tbl_Doktorlar set DoktorAd=@d2, 
+                DoktorSoyad=@d3, Bransid=(SELECT Bransid 
+                FROM Tbl_Branslar WHERE BransAd=@d4), 
+                DoktorTC=@d5, DoktorSifre=@d6 where 
+                Doktorid=@d1", bgl.baglanti());
+                komut.Parameters.AddWithValue("@d1", 
+                TxtDoktorid.Text);
+                komut.Parameters.AddWithValue("@d2", 
+                TxtAd.Text);
+                komut.Parameters.AddWithValue("@d3", 
+                TxtSoyad.Text);
+                komut.Parameters.AddWithValue("@d4", 
+                CmbBrans.Text);
+                komut.Parameters.AddWithValue("@d5", 
+                MskTC.Text);
+                komut.Parameters.AddWithValue("@d6", 
+                TxtSifre.Text);
+
+                komut.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Doktor bilgisi 
+                güncellendi.", "Bilgi", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Information);
+
+                TabloGuncelle();
+            }
+\end{lstlisting}
+
+komutlarýnda TC kontrolü yapýp sql komutu yazdým. Sql komutta Doktorlar tablosunda doktor adý, doktor soyadý, branþ id'yi branþ ada göre getirip, doktor TC'yi ve doktor þifreyi Doktorid'ye göre TxtDoktorid'nin yazýsýný, TxtAd'ýn yazýsýný, TxtSoyad'ýn yazýsýný, CmbBrans'ýn yazýsýný,  MskTC'nin yazýsýný ve TxtSifre'nin yazýsýný parametre alarak sql baðlantýsýný yapýp güncelle dedim. Komutu çalýþtýrdým ve baðlantýyý kapattým. Sonra "Doktor bilgisi güncellendi." þeklinde bilgi mesajý verip doktor tablosunu güncelledim.
+
+\textbf{Dosya 16:} Branþ Paneli Formu:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace Yonetim_Hastane
+{
+    public partial class FrmBransPaneli : Form
+    {
+        public FrmBransPaneli()
+        {
+            InitializeComponent();
+        }
+
+        SqlBaglantisi bgl = new SqlBaglantisi();
+
+        private void FrmBransPaneli_Load(object sender, 
+        EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select 
+            Bransid, BransAd from Tbl_Branslar", 
+            bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void TabloGuncelle()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select 
+            Bransid, BransAd from Tbl_Branslar", 
+            bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void BtnEkle_Click(object sender, 
+        EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("insert into
+             Tbl_Branslar(BransAd) values(@b1)", 
+             bgl.baglanti());
+            komut.Parameters.AddWithValue("@b1", 
+            TxtBrans.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            TabloGuncelle();
+            MessageBox.Show("Branþ eklendi.", "Bilgi",
+             MessageBoxButtons.OK, 
+             MessageBoxIcon.Information); 
+        }
+
+        private void dataGridView1_CellClick(object sender,
+         DataGridViewCellEventArgs e)
+        {
+            int secilen = dataGridView1.SelectedCells[0].
+            RowIndex;
+            Txtid.Text = dataGridView1.Rows[secilen].
+            Cells[0].Value.ToString();
+            TxtBrans.Text = dataGridView1.Rows[secilen].
+            Cells[1].Value.ToString();
+        }
+
+        private void BtnSil_Click(object sender, 
+        EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("delete from 
+            Tbl_Branslar where Bransid=@b1", 
+            bgl.baglanti());
+            komut.Parameters.AddWithValue("@b1", 
+            Txtid.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            TabloGuncelle();
+            MessageBox.Show("Branþ kaydý silindi.", 
+            "Bilgi", MessageBoxButtons.OK, 
+            MessageBoxIcon.Information);   
+        }
+
+        private void BtnGuncelle_Click(object sender, 
+        EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("update 
+            Tbl_Branslar set BransAd=@b1 where 
+            Bransid=@b2", bgl.baglanti());
+            komut.Parameters.AddWithValue("@b1", 
+            TxtBrans.Text);
+            komut.Parameters.AddWithValue("@b2", 
+            Txtid.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            TabloGuncelle();
+            MessageBox.Show("Branþ kaydý güncellendi.", 
+            "Bilgi", MessageBoxButtons.OK, 
+            MessageBoxIcon.Information);
+        }
+
+        private void button1_Click(object sender, 
+        EventArgs e)
+        {
+            Application.Exit();
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+ using System.Data.SqlClient;
+\end{lstlisting}
+
+komutuyla Sql komutlarýnýn çalýþmasý için SqlClient kütüphanesini ekledim.
+
+\begin{lstlisting}
+SqlBaglantisi bgl = new SqlBaglantisi();
+\end{lstlisting}
+
+komutuyla Sql baðlantýsýný yaptým.
+
+FrmBransPaneli\_Load içinde;
+
+\begin{lstlisting}
+DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select 
+            Bransid, BransAd from Tbl_Branslar", 
+            bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+\end{lstlisting}
+
+komutlarýnda dt isimli veri tablosu oluþturdum. da isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutta branþ id'yi ve branþ adý Branþlar tablosundan sql baðlantýsýný saðlayarak getir dedim. da isimli sql veri uyarlayýcýya dt isimli veri tablosunu doldur dedim. Veri kafesi görünümü 1'in veri kaynaðýna dt isimli veri tablosunu aktardým.
+
+TabloGuncelle fonksiyonu içinde;
+
+\begin{lstlisting}
+DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select 
+            Bransid, BransAd from Tbl_Branslar", 
+            bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+\end{lstlisting}
+
+komutlarýnda dt isimli veri tablosu oluþturdum. da isimli sql veri uyarlayýcýya sql komutu yazdým. Sql komutta branþ id'yi ve branþ adý Branþlar tablosundan sql baðlantýsýný saðlayarak getir dedim. da isimli sql veri uyarlayýcýya dt isimli veri tablosunu doldur dedim. Veri kafesi görünümü 1'in veri kaynaðýna dt isimli veri tablosunu aktardým.
+
+BtnEkle\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komut = new SqlCommand("insert into 
+Tbl_Branslar(BransAd) values(@b1)", bgl.baglanti());
+            komut.Parameters.AddWithValue("@b1", 
+            TxtBrans.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            TabloGuncelle();
+            MessageBox.Show("Branþ eklendi.", "Bilgi",
+             MessageBoxButtons.OK, 
+             MessageBoxIcon.Information);
+\end{lstlisting}
+
+komutlarýnda Branþlar tablosuna Branþ adýný TxtBrans'ýn yazýsýný parametre alarak ve sql baðlantýsýný saðlayarak ekledim. Komutu çalýþtýrdým ve sql baðlantýsýný kapattým. Branþlar tablosunu güncelledim ve "Branþ eklendi." þeklinde bilgi mesajý verdirdim.
+
+dataGridView1\_CellClick içinde;
+
+\begin{lstlisting}
+int secilen = dataGridView1.SelectedCells[0].RowIndex;
+            Txtid.Text = dataGridView1.Rows[secilen].
+            Cells[0].Value.ToString();
+            TxtBrans.Text = dataGridView1.Rows[secilen].
+            Cells[1].Value.ToString();
+\end{lstlisting}
+
+komutlarýnda branþ id'yi Txtid'nin yazýsýna ve branþ adý TxtBrans'ýn yazýsýna branþ tablosunda bir kez týklanýlan satýrýn satýr indeksini seçilen deðiþkenine alarak aktardým.
+
+BtnSil\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komut = new SqlCommand("delete from Tbl_Branslar
+ where Bransid=@b1", bgl.baglanti());
+            komut.Parameters.AddWithValue("@b1", 
+            Txtid.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            TabloGuncelle();
+            MessageBox.Show("Branþ kaydý silindi.", 
+            "Bilgi", MessageBoxButtons.OK, 
+            MessageBoxIcon.Information); 
+\end{lstlisting}
+
+komutlarýnda Branþlar tablosundan branþý Bransid'ye göre Txtid'nin yazýsýný parametre alarak ve sql baðlantýsýný saðlayarak sildim. Komutu çalýþtýrdým ve sql baðlantýsýný kapattým. Branþlar tablosunu güncelledim ve "Branþ kaydý silindi." þeklinde bilgi mesajý verdirdim.
+
+BtnGuncelle\_Click içinde;
+
+\begin{lstlisting}
+SqlCommand komut = new SqlCommand("update Tbl_Branslar set 
+BransAd=@b1 where Bransid=@b2", bgl.baglanti());
+            komut.Parameters.AddWithValue("@b1", 
+            TxtBrans.Text);
+            komut.Parameters.AddWithValue("@b2", 
+            Txtid.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            TabloGuncelle();
+            MessageBox.Show("Branþ kaydý güncellendi.", 
+            "Bilgi", MessageBoxButtons.OK, 
+            MessageBoxIcon.Information);
+\end{lstlisting}
+
+komutlarýnda Branþlar tablosunda branþ adýný Bransid'ye göre TxtBrans'ýn yazýsýný ve Txtid'nin yazýsýný parametre alarak ve sql baðlantýsýný saðlayarak güncelledim. Komutu çalýþtýrdým ve sql baðlantýsýný kapattým. Branþlar tablosunu güncelledim ve "Branþ kaydý güncellendi." þeklinde bilgi mesajý verdirdim.
+
+button1\_Click içinde;
+
+\begin{lstlisting}
+Application.Exit();
+\end{lstlisting}
+
+komutunda uygulamadan çýk dedim.
+
+\textbf{Dosya 17:} Program.cs dosyasý:
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Yonetim_Hastane
+{
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.
+            SetCompatibleTextRenderingDefault(false);
+            Application.Run(new FrmGirisler());
+        }
+    }
+}
+\end{lstlisting}
+
+komutlarýnda FrmGirisler formunu ilk açýlan form yani parogramý açtýðýmýzda veya çalýþtýrdýðýmýzda ilk karþýmýza gelen olarak ayarladým.

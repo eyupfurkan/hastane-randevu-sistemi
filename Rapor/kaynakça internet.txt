@@ -1,0 +1,8 @@
+1- bit: https://docs.microsoft.com/en-us/sql/t-sql/data-types/bit-transact-sql?view=sql-server-2017
+2- tinyint: https://docs.microsoft.com/en-us/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-2017
+3- c# veritabanýndan veri listeleme: http://selcukgural.com/c-ile-datagridview-uzerinde-veri-listeleme/
+4- c# veri tabanýna veri ekleme: https://www.kodlamamerkezi.com/c-net/c-ile-sql-server-veritabanina-kayit-ekleme/
+5- c# veritabanýndan veri silme: https://www.kodlamamerkezi.com/c-net/c-ile-sql-server-veritabanindan-kayit-silme/
+6- c# veritabanýndan veri güncelleme: https://www.kodlamamerkezi.com/c-net/c-ile-sql-server-veritabani-kayit-guncelleme-islemleri/
+7- c# datagridview içindeki verileri textboxa aktarma: https://sanalkurs.net/c-datagridview-de-secilen-satirlari-textbox-da-gosterme-10584.html
+8- tc kontrol c#: https://www.yazilimkodlama.com/programlama/c-tc-kimlik-no-dogrulama-kontrol-program-kodlari/

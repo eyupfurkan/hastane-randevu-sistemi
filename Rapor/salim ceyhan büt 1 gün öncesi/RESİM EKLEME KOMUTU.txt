@@ -1,0 +1,11 @@
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.1]{Lazer_Atesleme}
+\caption{Galigoo Oyunu - Lazer Ateþlemesi}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{8_randevu_listesi}
+\caption{Randevu Listesi Formu}
+\end{figure}
