@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
+namespace Yonetim_Hastane
+{
+    class SqlBaglantisi
+    {
+        public SqlConnection baglanti()
+        {
+            SqlConnection baglan = new SqlConnection("Data Source=FURKAN\\SQLEXPRESS;Initial Catalog=Hastane_Yonetim_ve_Randevu_Sistemi;Integrated Security=True");
+            baglan.Open();
+            return baglan;
+        }
+    }
+}
